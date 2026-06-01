@@ -117,21 +117,23 @@
   // === 分类筛选 ===
   function initCategoryFilter() {
     const tags = document.querySelectorAll('.cat-tag');
+    console.log('[filter] cat-tags found:', tags.length);
     if (!tags.length) return;
     const cards = document.querySelectorAll('.tool-card');
+    console.log('[filter] tool-cards found:', cards.length);
+    cards.forEach((c, i) => console.log('[filter] card', i, 'cat:', c.dataset.category));
     
     tags.forEach(tag => {
       tag.addEventListener('click', function() {
         const cat = this.dataset.category;
+        console.log('[filter] clicked category:', cat);
         tags.forEach(t => t.classList.remove('active'));
         this.classList.add('active');
         
-        cards.forEach(card => {
-          if (cat === 'all' || card.dataset.category === cat) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
+        cards.forEach((card, i) => {
+          const match = (cat === 'all' || card.dataset.category === cat);
+          console.log('[filter] card', i, 'cat:', card.dataset.category, 'match:', match, 'action:', match ? 'SHOW' : 'HIDE');
+          card.style.display = match ? '' : 'none';
         });
       });
     });
