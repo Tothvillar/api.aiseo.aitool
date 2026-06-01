@@ -91,10 +91,54 @@
     });
   }
 
+  // === 统计数字滚动 ===
+  function initStatCounter() {
+    const statNums = document.querySelectorAll('.stat-num');
+    if (!statNums.length) return;
+    
+    function animateCount(el) {
+      const text = el.textContent.trim();
+      const match = text.match(/^(\d+)([+%]?.*)$/);
+      if (!match) return;
+      const target = parseInt(match[1]);
+      const suffix = match[2];
+      let current = 0;
+      const duration = 800;
+      const start = performance.now();
+      
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(eased * target);
+        el.textContent = current + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); observer.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    statNums.forEach(n => observer.observe(n));
+  }
+
+  // === 分区标题下划线展开 ===
+  function initSectionTitles() {
+    const titles = document.querySelectorAll('.section-title');
+    if (!titles.length) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+    }, { threshold: 0.6, rootMargin: '0px 0px -40px 0px' });
+    titles.forEach(t => observer.observe(t));
+  }
+
   // === 启动 ===
   document.addEventListener('DOMContentLoaded', () => {
     initTypewriter();
     initScrollReveal();
+    initStatCounter();
+    initSectionTitles();
     initCategoryFilter();
     initSearch();
     initMouseGlow();
