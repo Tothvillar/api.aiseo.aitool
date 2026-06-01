@@ -36,17 +36,41 @@
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* === 浅色主题 === */
+[data-theme="light"] {
+  --bg-primary: #f4f6f9;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-card-hover: rgba(245, 247, 250, 1);
+  --cyan: #3b6ef0;
+  --cyan-dim: rgba(59, 110, 240, 0.08);
+  --cyan-glow: rgba(59, 110, 240, 0.25);
+  --purple: #7c3aed;
+  --purple-dim: rgba(124, 58, 237, 0.08);
+  --purple-glow: rgba(124, 58, 237, 0.25);
+  --green: #10b981;
+  --green-dim: rgba(16, 185, 129, 0.08);
+  --amber: #e67700;
+  --text: #1a1a2e;
+  --text-secondary: #4a5568;
+  --text-dim: #8892a0;
+  --border: rgba(59, 110, 240, 0.15);
+  --border-glow: rgba(59, 110, 240, 0.35);
+  --scanline-opacity: 0;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
-/* === 扫描线效果 === */
+/* === 扫描线效果（暗黑专属） === */
 body::before {
   content: "";
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 240, 255, 0.015) 2px, rgba(0, 240, 255, 0.015) 4px);
   pointer-events: none; z-index: 9999;
 }
+[data-theme="light"] body::before { opacity: 0; }
 
 /* === 鼠标跟随光晕 === */
 body::after {
@@ -103,6 +127,17 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 }
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 .nav-links a:hover, .nav-links a.active { color: var(--cyan); }
+
+/* === 主题切换按钮 === */
+.theme-toggle {
+  background: none; border: 1px solid var(--border);
+  color: var(--text-secondary); font-size: 1.2rem;
+  cursor: pointer; border-radius: 8px; padding: 6px 10px;
+  transition: all var(--transition);
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+}
+.theme-toggle:hover { color: var(--cyan); border-color: var(--cyan); }
 
 /* === 容器 === */
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }

@@ -133,8 +133,30 @@
     titles.forEach(t => observer.observe(t));
   }
 
+  // === 主题切换 ===
+  function initThemeToggle() {
+    const btn = document.getElementById('themeToggle');
+    if (!btn) return;
+    const html = document.documentElement;
+
+    function setTheme(light) {
+      html.setAttribute('data-theme', light ? 'light' : 'dark');
+      btn.textContent = light ? '☀️' : '🌙';
+      localStorage.setItem('aitool-theme', light ? 'light' : 'dark');
+    }
+
+    btn.addEventListener('click', () => {
+      setTheme(html.getAttribute('data-theme') !== 'light');
+    });
+
+    // 页面加载时应用已保存的主题
+    const saved = localStorage.getItem('aitool-theme');
+    if (saved === 'light') setTheme(true);
+  }
+
   // === 启动 ===
   document.addEventListener('DOMContentLoaded', () => {
+    initThemeToggle();
     initTypewriter();
     initScrollReveal();
     initStatCounter();
