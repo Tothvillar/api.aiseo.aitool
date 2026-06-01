@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><title>Filter Test</title>
+<style>
+.categories { display:flex; gap:10px; margin:20px; }
+.cat-tag { padding:6px 16px; border-radius:20px; border:1px solid #555; cursor:pointer; color:#fff; }
+.cat-tag.active { background:#0ff; color:#000; }
+.tool-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:12px; margin:20px; }
+.tool-card { padding:20px; border:1px solid #555; border-radius:8px; color:#fff; }
+</style>
+</head>
+<body style="background:#111; font-family:sans-serif">
+<h2 style="color:#fff;margin:20px">Filter Test Page</h2>
+<div class="categories">
+  <span class="cat-tag active" data-category="all">全部</span>
+  <span class="cat-tag" data-category="writing">AI写作</span>
+  <span class="cat-tag" data-category="drawing">AI绘画</span>
+  <span class="cat-tag" data-category="coding">AI编程</span>
+</div>
+<div class="tool-grid">
+  <article class="tool-card" data-category="writing"><h3>Claude</h3><p>AI写作工具</p></article>
+  <article class="tool-card" data-category="writing"><h3>ChatGPT</h3><p>AI写作工具</p></article>
+  <article class="tool-card" data-category="drawing"><h3>Midjourney</h3><p>AI绘画工具</p></article>
+  <article class="tool-card" data-category="drawing"><h3>SD</h3><p>AI绘画工具</p></article>
+  <article class="tool-card" data-category="coding"><h3>Cursor</h3><p>AI编程工具</p></article>
+  <article class="tool-card" data-category="coding"><h3>Copilot</h3><p>AI编程工具</p></article>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tags = document.querySelectorAll('.cat-tag');
+  const cards = document.querySelectorAll('.tool-card');
+  console.log('Tags:', tags.length, 'Cards:', cards.length);
+  
+  // Visual debug
+  var badge = document.createElement('div');
+  badge.style.cssText = 'position:fixed;top:10px;right:10px;background:lime;color:#000;padding:4px 8px;border-radius:4px;font:12px monospace;z-index:99999';
+  badge.textContent = 'INIT: ' + tags.length + '/' + cards.length;
+  document.body.appendChild(badge);
+  
+  tags.forEach(function(tag) {
+    tag.addEventListener('click', function() {
+      var cat = this.dataset.category;
+      console.log('Clicked:', cat);
+      tags.forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+      
+      var s = 0, h = 0;
+      cards.forEach(function(card) {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = '';
+          s++;
+        } else {
+          card.style.display = 'none';
+          h++;
+        }
+      });
+      badge.textContent = 'Cat:' + cat + ' Show:' + s + ' Hide:' + h;
+    });
+  });
+});
+</script>
+</body>
+</html>
