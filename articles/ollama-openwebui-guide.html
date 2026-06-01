@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ollama + Open WebUI 部署教程：免费搭建私人ChatGPT | 开源实战 - AI工具库</title>
+<meta name="description" content="从零搭建私有AI助手：Ollama部署本地大模型 + Open WebUI图形界面，完全免费、数据不出电脑。包含Windows/Mac/Linux三平台教程、模型推荐、GPU加速配置和常见问题排错。">
+<meta name="keywords" content="Ollama教程,Ollama部署,Open WebUI,本地大模型,私人ChatGPT,开源AI,自建AI助手,免费AI部署">
+<link rel="canonical" href="https://aitool.aiseo.one/articles/ollama-openwebui-guide.html">
+<link rel="stylesheet" href="/css/style.css?v=9">
+<meta property="og:title" content="Ollama + Open WebUI：免费搭建私人ChatGPT | AI工具库">
+<meta property="og:description" content="从零搭建私有AI助手，数据100%本地，完全免费。三平台教程+模型推荐+排错指南。">
+<meta property="og:url" content="https://aitool.aiseo.one/articles/ollama-openwebui-guide.html">
+<meta property="og:type" content="article">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Ollama + Open WebUI 部署教程：免费搭建你的私人ChatGPT","description":"从零搭建私有AI助手：Ollama本地大模型 + Open WebUI图形界面，三平台部署教程、模型选择指南、GPU加速配置、常见问题排错。","author":{"@type":"Person","name":"AI工具库编辑团队"},"datePublished":"2026-06-02","dateModified":"2026-06-02","publisher":{"@type":"Organization","name":"AI工具库"},"mainEntityOfPage":"https://aitool.aiseo.one/articles/ollama-openwebui-guide.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ollama + Open WebUI 免费吗？","acceptedAnswer":{"@type":"Answer","text":"完全免费。Ollama是MIT协议开源项目，Open WebUI是BSD协议。本地部署后没有任何月费，唯一成本是你的电脑电费。如果你用云服务器部署，需要付VPS租金（约$5-20/月）。"}},{"@type":"Question","name":"需要什么样的电脑配置？","acceptedAnswer":{"@type":"Answer","text":"最低配置：8GB内存，CPU推理也能跑7B模型（如Qwen2.5 7B、Llama 3.2 3B）。推荐配置：16GB+内存 + 6GB+显存的NVIDIA显卡，可以流畅运行14B级别模型。如果是Mac M系列芯片，8GB统一内存跑7B模型体验已经不错。"}},{"@type":"Question","name":"本地部署的模型和ChatGPT比差距大吗？","acceptedAnswer":{"@type":"Answer","text":"有差距但正在快速缩小。7B级别模型在中文日常对话上已接近GPT-3.5水平；14B-32B模型（如Qwen2.5 32B、DeepSeek R1 32B）在多数任务上接近GPT-4o；70B+模型在特定领域可超越。关键是本地模型响应快、无隐私顾虑、可离线使用。"}}]}</script>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo"><img src="/images/logo.png" alt="AI工具库" height="32"><span>AI工具库</span></a><ul class="nav-links"><li><a href="/">首页</a></li><li><a href="/tools.html">工具评测</a></li><li><a href="/articles.html">最新文章</a></li><li><a href="/opensource.html">开源实战</a></li><li><a href="/about.html">关于</a></li><li><a href="/contact.html">联系</a></li></ul><button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="切换浅色/暗黑模式">🌙</button></div></nav>
+
+<div class="breadcrumb container"><a href="/">首页</a> &raquo; <a href="/opensource.html">开源实战</a> &raquo; Ollama + Open WebUI 部署教程</div>
+<main><article class="article-detail">
+<h1>Ollama + Open WebUI 部署教程：免费搭建你的私人ChatGPT（2026最新）</h1>
+<div class="article-meta"><span>📅 2026-06-02</span><span>📂 分类：开源实战</span><span>⏱️ 阅读约 12 分钟</span><span>🏷️ 标签：Ollama · Open WebUI · 开源 · 部署教程</span></div>
+<div class="article-content">
+
+<div class="highlight-box"><strong>📌 一句话总结：</strong>用Ollama在本地运行开源大模型（Qwen、Llama、DeepSeek），再用Open WebUI套一个ChatGPT同款界面——<strong>30分钟，零成本，数据100%留在你的电脑上。</strong>iOS/Android也能通过内网访问。</div>
+<div class="ad-placeholder" style="margin:2rem 0;padding:1rem;border:1px dashed #444;text-align:center;color:#888;border-radius:8px;">【广告位 - 文章顶部】</div>
+
+<h2>第一部分：为什么选 Ollama + Open WebUI？</h2>
+<p>市面上本地大模型方案很多，但这对组合在2026年几乎成了事实标准：</p>
+<table class="comparison-table">
+<thead><tr><th>方案</th><th>优点</th><th>缺点</th></tr></thead>
+<tbody>
+<tr><td><strong>Ollama + Open WebUI ⭐</strong></td><td>一键部署、模型库丰富、界面漂亮、支持多用户、插件系统</td><td>需要一定动手能力</td></tr>
+<tr><td>LM Studio</td><td>图形化界面、Windows/Mac友好</td><td>不支持Web访问、不能多人用</td></tr>
+<tr><td>GPT4All</td><td>超简单、CPU也能跑</td><td>模型选择少、功能简陋</td></tr>
+<tr><td>text-generation-webui</td><td>功能最全、插件最多</td><td>安装复杂、容易报错</td></tr>
+<tr><td>vLLM / LocalAI</td><td>生产级性能、API兼容OpenAI</td><td>面向开发者、配置门槛高</td></tr>
+</tbody></table>
+<p><strong>总结：</strong>Ollama负责后端（运行模型），Open WebUI负责前端（聊天界面）。一个装模型，一个管界面——分工明确，都很好用。</p>
+
+<h2>第二部分：环境准备</h2>
+<table class="comparison-table">
+<thead><tr><th>角色</th><th>最低配置</th><th>推荐配置</th></tr></thead>
+<tbody>
+<tr><td>CPU推理（7B模型）</td><td>4核CPU + 8GB内存</td><td>8核+ + 16GB内存</td></tr>
+<tr><td>GPU推理（7B-14B模型）</td><td>NVIDIA 4GB显存 / Apple M1 8GB</td><td>NVIDIA 8GB+ / Apple M2 Pro+</td></tr>
+<tr><td>跑70B大模型</td><td>NVIDIA 24GB显存</td><td>双卡或多节点</td></tr>
+</tbody></table>
+<p><strong>2026年推荐模型选择：</strong></p>
+<ul>
+<li><strong>日常对话/写作：</strong>qwen2.5:14b 或 llama3.2:latest（中英文俱佳）</li>
+<li><strong>编程辅助：</strong>deepseek-coder-v2:16b 或 qwen2.5-coder:14b</li>
+<li><strong>深度推理：</strong>deepseek-r1:32b 或 qwen2.5:32b（需要好显卡）</li>
+<li><strong>轻量备用：</strong>qwen2.5:7b 或 llama3.2:3b（老旧电脑也能跑）</li>
+</ul>
+
+<h2>第三步：安装 Ollama</h2>
+<h3>Windows</h3>
+<div class="code-block"><pre><code># 1. 去 ollama.com 下载 Windows 安装包（.exe）
+# 2. 双击安装，一路 Next
+# 3. 安装完后打开 PowerShell 验证：
+ollama --version
+# 输出：ollama version is 0.5.x</code></pre></div>
+
+<h3>macOS</h3>
+<div class="code-block"><pre><code># 推荐用 Homebrew：
+brew install ollama
+# 或者去官网下载 .dmg 直接拖进 Applications</code></pre></div>
+
+<h3>Linux (Ubuntu/Debian)</h3>
+<div class="code-block"><pre><code># 一条命令安装：
+curl -fsSL https://ollama.com/install.sh | sh
+
+# 启动服务：
+sudo systemctl enable ollama
+sudo systemctl start ollama
+
+# 验证：
+ollama --version</code></pre></div>
+
+<p>装完Ollama之后先拉一个模型试试：</p>
+<div class="code-block"><pre><code># 下载 Qwen2.5 14B（推荐，中文质量优秀）：
+ollama pull qwen2.5:14b
+
+# 或下载更轻量的7B版本（对配置要求更低）：
+ollama pull qwen2.5:7b
+
+# 测试一下能跑吗：
+ollama run qwen2.5:7b "你好，用中文介绍一下你自己"</code></pre></div>
+<p>看到模型正常回复，就说明Ollama已经装好了。首次下载模型需要时间（7B约4GB，14B约8GB），耐心等待。</p>
+
+<div class="ad-placeholder" style="margin:2rem 0;padding:1rem;border:1px dashed #444;text-align:center;color:#888;border-radius:8px;">【广告位 - 文章中段】</div>
+
+<h2>第四步：安装 Open WebUI</h2>
+<p>Open WebUI 提供了ChatGPT风格的全功能聊天界面，支持对话历史、Markdown渲染、代码高亮、文件上传、多模型切换、多用户管理等。</p>
+
+<h3>方法一：Docker（推荐，跨平台）</h3>
+<div class="code-block"><pre><code># 确保已安装 Docker Desktop 或 Docker Engine
+# 一条命令启动：
+docker run -d \
+  -p 3000:8080 \
+  --add-host=host.docker.internal:host-gateway \
+  -v open-webui:/app/backend/data \
+  --name open-webui \
+  --restart always \
+  ghcr.io/open-webui/open-webui:main
+
+# 打开浏览器访问：http://localhost:3000</code></pre></div>
+
+<h3>方法二：pip 安装（不需要Docker）</h3>
+<div class="code-block"><pre><code># 需要 Python 3.11+
+pip install open-webui
+
+# 启动：
+open-webui serve
+
+# 访问 http://localhost:8080</code></pre></div>
+
+<p><strong>避坑提示：</strong></p>
+<ul>
+<li>Docker方式需要Ollama和Open WebUI在同一台机器上，或通过 <code>OLLAMA_BASE_URL</code> 环境变量指定Ollama地址</li>
+<li>Windows上Docker可能需要WSL2，如果不想折腾Docker直接用pip方式</li>
+<li>首次启动会创建管理员账号，这是你一个人的ChatGPT，想几个人用就加几个账号</li>
+</ul>
+
+<h2>第五步：配置和使用</h2>
+<h3>基本设置</h3>
+<ol>
+<li>打开 Open WebUI 界面 → 左下角点击你的头像 → <strong>管理员面板 → 设置</strong></li>
+<li>确认 Ollama 连接地址（默认 <code>http://localhost:11434</code>）</li>
+<li>在「模型」标签页可以看到已下载的模型，也可以在这里直接搜索和拉取新模型</li>
+<li>回到聊天界面，顶部下拉菜单选择你想用的模型，开始聊天</li>
+</ol>
+
+<h3>进阶：GPU加速（NVIDIA显卡用户必看）</h3>
+<p>Ollama默认会自动检测NVIDIA显卡并使用CUDA加速。如果没检测到：</p>
+<div class="code-block"><pre><code># 检查Ollama是否在用GPU：
+ollama ps
+# 如果MODEL列后面有"100% GPU"，就说明已经在用显卡了
+
+# 如果没检测到GPU，确认：
+# 1. NVIDIA驱动已安装：nvidia-smi
+# 2. CUDA toolkit已安装
+# 3. 重启Ollama服务后再试</code></pre></div>
+
+<h3>手机也能用：内网穿透</h3>
+<p>部署好后，同一WiFi下的手机/iPad直接访问 <code>http://你的电脑IP:3000</code> 就能用。如果想在外网访问，推荐用Tailscale（免费）：</p>
+<div class="code-block"><pre><code># 在服务器上装 Tailscale：
+curl -fsSL https://tailscale.com/install.sh | sh
+tailscale up
+
+# 然后手机上装Tailscale App，加入同一网络
+# 就能通过 Tailscale 分配的IP访问了</code></pre></div>
+
+<h2>第六步：常见问题排错</h2>
+
+<h3>Q: Docker启动后连不上Ollama</h3>
+<p>在 Open WebUI 的 Docker 启动命令里加 <code>-e OLLAMA_BASE_URL=http://host.docker.internal:11434</code>。如果Ollama在其他机器上，改成那台机器的IP。</p>
+
+<h3>Q: 模型回复很慢</h3>
+<ul>
+<li>7B模型 + CPU推理 = 约2-5 token/秒（可以接受）</li>
+<li>14B模型 + CPU推理 = 约1-2 token/秒（偏慢）</li>
+<li>同模型 + GPU推理 = 10-50 token/秒（流畅）</li>
+<li><strong>解决：</strong>换更小的模型（7B→3B），或加显卡，或降低 <code>num_ctx</code> 上下文长度</li>
+</ul>
+
+<h3>Q: 中文回答乱码或英文夹杂</h3>
+<div class="code-block"><pre><code># 在 Open WebUI 的设置里加系统提示词：
+# 管理员面板 → 设置 → 默认提示词 → 填入：
+"你是一个中文AI助手，请始终使用中文回答，除非用户明确要求使用其他语言。"</code></pre></div>
+
+<h3>Q: 磁盘空间不够了</h3>
+<div class="code-block"><pre><code># 查看已下载的模型：
+ollama list
+
+# 删除不用的模型：
+ollama rm qwen2.5:7b
+
+# 模型默认存在（Windows）：
+# C:\Users\你的用户名\.ollama\models
+# 可以用 mklink 移到其他盘</code></pre></div>
+
+<div class="ad-placeholder" style="margin:2rem 0;padding:1rem;border:1px dashed #444;text-align:center;color:#888;border-radius:8px;">【广告位 - 文章底部】</div>
+
+<h2>总结：这套方案的真正价值</h2>
+<p>花30分钟搭好 Ollama + Open WebUI，你得到的是：</p>
+<ul>
+<li><strong>永久免费</strong>的AI助手（不需要每月$20的ChatGPT订阅）</li>
+<li><strong>数据隐私</strong>（所有对话和文件都留在本地，不经过任何第三方服务器）</li>
+<li><strong>离线可用</strong>（没网也能用，出差/飞机上照样有AI帮忙）</li>
+<li><strong>全家共享</strong>（开几个账号，家人同事都能用）</li>
+<li><strong>模型自由</strong>（想用Qwen用Qwen，想用Llama用Llama，随时切换）</li>
+</ul>
+<p>如果说ChatGPT是租房子住，那Ollama + Open WebUI就是买了自己的房子——前期花点精力装修，后面想怎么住怎么住。</p>
+
+<h3>下一步可以怎么玩？</h3>
+<ul>
+<li>接入 <strong>Dify</strong>（可视化的AI应用搭建平台，可以做知识库问答机器人）</li>
+<li>接入 <strong>AnythingLLM</strong>（文档问答，把PDF/Word喂给模型）</li>
+<li>接入 <strong>Continue.dev</strong>（VS Code里的AI编程插件，直连Ollama）</li>
+<li>用 <strong>LangChain + Ollama</strong> 构建自己的AI Agent</li>
+</ul>
+<p><strong>后续我们会出这些工具的详细教程，记得收藏本站。</strong></p>
+
+</div>
+</article></main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a href="/" class="footer-brand"><img src="/images/logo.png" alt="AI工具库" height="36"><span>AI工具库</span></a>
+      <p>专注AI工具评测与推荐。我们不生产AI，我们帮你找到最适合的AI工具。</p>
+    </div>
+    <div>
+      <h4>快速导航</h4>
+      <ul>
+        <li><a href="/">首页</a></li>
+        <li><a href="/tools.html">工具评测</a></li>
+        <li><a href="/articles.html">最新文章</a></li>
+        <li><a href="/opensource.html">开源实战</a></li>
+        <li><a href="/about.html">关于我们</a></li>
+        <li><a href="/contact.html">联系我们</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>政策</h4>
+      <ul>
+        <li><a href="/privacy.html">隐私政策</a></li>
+        <li><a href="/sitemap.xml">网站地图</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 AI工具库 (aitool.aiseo.one) · 本站为独立评测平台，与所评工具无商业关联。</p>
+  </div>
+</footer>
+
+<button id="backToTop" style="display:none;position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);z-index:99;">↑</button>
+
+<script src="/js/main.js?v=9"></script>
+</body>
+</html>
