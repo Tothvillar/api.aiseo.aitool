@@ -79,7 +79,7 @@
     }
 
     resize();
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 90; i++) {
       particles.push(new Particle());
     }
     window.addEventListener('resize', resize);
