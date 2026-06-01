@@ -92,39 +92,11 @@
     animate();
   }
 
-  // === 卡片入场动画 ===
+  // === 卡片入场动画（JS仅负责stagger延迟，可见性由CSS保证） ===
   function initScrollReveal() {
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-      document.querySelectorAll('.tool-card, .article-card').forEach((card, i) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = `all 0.5s ease ${i * 0.05}s`;
-        observer.observe(card);
-      });
-
-      // Reveal cards that are already visible on load
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          document.querySelectorAll('.tool-card:not([style*="opacity: 1"]), .article-card:not([style*="opacity: 1"])').forEach(card => {
-            const rect = card.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-              card.style.opacity = '1';
-              card.style.transform = 'translateY(0)';
-            }
-          });
-        });
-      });
-    }
+    document.querySelectorAll('.tool-card, .article-card').forEach((card, i) => {
+      card.style.animation = `cardReveal 0.5s ease both ${i * 0.06}s`;
+    });
   }
 
   // === 分类筛选（事件委托） ===
