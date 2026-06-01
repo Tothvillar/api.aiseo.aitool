@@ -1,4 +1,4 @@
-/* ===== AI工具评测站 - 暗黑科技风 ===== */
+﻿/* ===== AI工具评测站 - 暗黑科技风 ===== */
 /* 需要从 NanoBanana 生成2张图:
    1. logo.png  - 网站Logo (提示词见下方)
    2. hero-bg.png - Hero背景图 (提示词见下方)
@@ -416,6 +416,21 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 .footer ul li { margin-bottom: 8px; }
 .footer ul a { color: var(--text-dim); font-size: .88rem; }
 .footer ul a:hover { color: var(--cyan); }
+
+/* Footer brand logo */
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e0e0e0;
+  transition: opacity 0.3s;
+}
+.footer-brand:hover { opacity: 0.8; }
+.footer-brand img { border-radius: 4px; }
 .footer-bottom {
   max-width: var(--max-width); margin: 32px auto 0; padding: 20px 20px 0;
   border-top: 1px solid var(--border); text-align: center; font-size: .82rem;

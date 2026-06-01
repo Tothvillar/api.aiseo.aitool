@@ -103,7 +103,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
       document.querySelectorAll('.tool-card, .article-card').forEach((card, i) => {
         card.style.opacity = '0';
@@ -111,39 +111,45 @@
         card.style.transition = `all 0.5s ease ${i * 0.05}s`;
         observer.observe(card);
       });
+
+      // Reveal cards that are already visible on load
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.querySelectorAll('.tool-card:not([style*="opacity: 1"]), .article-card:not([style*="opacity: 1"])').forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }
+          });
+        });
+      });
     }
   }
 
-  // === 分类筛选 ===
+  // === 分类筛选（事件委托） ===
   function initCategoryFilter() {
-    const tags = document.querySelectorAll('.cat-tag');
-    if (!tags.length) return;
-    const cards = document.querySelectorAll('.tool-card');
+    const tagsContainer = document.querySelector('.categories');
+    if (!tagsContainer) return;
     
-    // Debug badge
-    const badge = document.createElement('div');
-    badge.id = 'filter-debug';
-    badge.style.cssText = 'position:fixed;top:10px;right:10px;background:#0f0;color:#000;padding:4px 8px;border-radius:4px;font:12px monospace;z-index:99999';
-    badge.textContent = `Tags:${tags.length} Cards:${cards.length}`;
-    document.body.appendChild(badge);
-    
-    tags.forEach(tag => {
-      tag.addEventListener('click', function() {
-        const cat = this.dataset.category;
-        tags.forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-        
-        let shown = 0, hidden = 0;
-        cards.forEach(card => {
-          if (cat === 'all' || card.dataset.category === cat) {
-            card.style.display = '';
-            shown++;
-          } else {
-            card.style.display = 'none';
-            hidden++;
-          }
-        });
-        badge.textContent = `Cat:${cat} Shown:${shown} Hidden:${hidden}`;
+    tagsContainer.addEventListener('click', function(e) {
+      const tag = e.target.closest('.cat-tag');
+      if (!tag) return;
+      
+      const cat = tag.dataset.category;
+      if (!cat) return;
+      
+      // Toggle active class on all tags
+      tagsContainer.querySelectorAll('.cat-tag').forEach(t => t.classList.remove('active'));
+      tag.classList.add('active');
+      
+      // Filter cards
+      document.querySelectorAll('.tool-card').forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
       });
     });
   }
