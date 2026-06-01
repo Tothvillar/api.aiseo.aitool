@@ -21,7 +21,7 @@
 <!-- 导航栏 -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">🤖 <span>AI工具库</span></a>
+    <a href="/" class="nav-logo"><img src="/images/logo.png" alt="AI工具库 Logo" height="36"></a>
     <ul class="nav-links">
       <li><a href="/" class="active">首页</a></li>
       <li><a href="/#tools">工具评测</a></li>
@@ -33,22 +33,28 @@
 </nav>
 
 <!-- Hero -->
-<section class="hero">
-  <h1>发现<span>最好用</span>的AI工具</h1>
-  <p>客观评测 · 真实对比 · 帮你选对工具。覆盖AI写作、绘画、编程、视频、办公等10+领域</p>
+<section class="hero" id="hero">
+  <!-- NanoBanana生成的背景图 -->
+  <img class="hero-bg" src="/images/hero-bg.png" alt="" />
+  <!-- 粒子画布 -->
+  <canvas id="particleCanvas" class="particles"></canvas>
+  
+  <h1>发现最好用的AI工具</h1>
+  <div class="typewriter" data-texts='["客观评测 · 真实对比 · 帮你选对工具","覆盖AI写作、绘画、编程、视频、办公等10+领域","发掘2026年最值得使用的AI技术"]'>
+    <span class="cursor"></span>
+  </div>
   <div class="hero-search">
-    <input type="text" id="searchInput" placeholder="搜索AI工具，如「AI写作」「免费AI绘图」...">
-    <button id="searchBtn">🔍 搜索</button>
+    <input type="text" id="toolSearch" placeholder="搜索AI工具，如「AI写作」「免费AI绘图」...">
+    <button>搜索</button>
   </div>
   <div class="categories">
     <span class="cat-tag active" data-category="all">全部</span>
-    <span class="cat-tag" data-category="writing">✍️ AI写作</span>
-    <span class="cat-tag" data-category="image">🎨 AI绘画</span>
-    <span class="cat-tag" data-category="coding">💻 AI编程</span>
-    <span class="cat-tag" data-category="video">🎬 AI视频</span>
-    <span class="cat-tag" data-category="office">📊 AI办公</span>
-    <span class="cat-tag" data-category="voice">🎙️ AI语音</span>
-    <span class="cat-tag" data-category="free">🆓 免费工具</span>
+    <span class="cat-tag" data-category="writing">AI写作</span>
+    <span class="cat-tag" data-category="image">AI绘画</span>
+    <span class="cat-tag" data-category="coding">AI编程</span>
+    <span class="cat-tag" data-category="video">AI视频</span>
+    <span class="cat-tag" data-category="office">AI办公</span>
+    <span class="cat-tag" data-category="free">免费工具</span>
   </div>
 </section>
 
