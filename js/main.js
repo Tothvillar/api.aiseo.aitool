@@ -117,24 +117,33 @@
   // === 分类筛选 ===
   function initCategoryFilter() {
     const tags = document.querySelectorAll('.cat-tag');
-    console.log('[filter] cat-tags found:', tags.length);
     if (!tags.length) return;
     const cards = document.querySelectorAll('.tool-card');
-    console.log('[filter] tool-cards found:', cards.length);
-    cards.forEach((c, i) => console.log('[filter] card', i, 'cat:', c.dataset.category));
+    
+    // Debug badge
+    const badge = document.createElement('div');
+    badge.id = 'filter-debug';
+    badge.style.cssText = 'position:fixed;top:10px;right:10px;background:#0f0;color:#000;padding:4px 8px;border-radius:4px;font:12px monospace;z-index:99999';
+    badge.textContent = `Tags:${tags.length} Cards:${cards.length}`;
+    document.body.appendChild(badge);
     
     tags.forEach(tag => {
       tag.addEventListener('click', function() {
         const cat = this.dataset.category;
-        console.log('[filter] clicked category:', cat);
         tags.forEach(t => t.classList.remove('active'));
         this.classList.add('active');
         
-        cards.forEach((card, i) => {
-          const match = (cat === 'all' || card.dataset.category === cat);
-          console.log('[filter] card', i, 'cat:', card.dataset.category, 'match:', match, 'action:', match ? 'SHOW' : 'HIDE');
-          card.style.display = match ? '' : 'none';
+        let shown = 0, hidden = 0;
+        cards.forEach(card => {
+          if (cat === 'all' || card.dataset.category === cat) {
+            card.style.display = '';
+            shown++;
+          } else {
+            card.style.display = 'none';
+            hidden++;
+          }
         });
+        badge.textContent = `Cat:${cat} Shown:${shown} Hidden:${hidden}`;
       });
     });
   }
