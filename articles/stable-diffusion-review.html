@@ -2,134 +2,134 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stable Diffusion 深度评测 2026：免费开源，但值得你花时间学吗�?- AI工具�?/title>
-<meta name="description" content="Stable Diffusion SD3.5 XL真实使用评测：ControlNet精准控制、LoRA风格定制、ComfyUI工作流，vs Midjourney对比和本地部署全攻略�?>
+<title>Stable Diffusion 深度评测 2026：免费开源，但值得你花时间学吗？ - AI工具库</title>
+<meta name="description" content="Stable Diffusion SD3.5 XL真实使用评测：ControlNet精准控制、LoRA风格定制、ComfyUI工作流，vs Midjourney对比和本地部署全攻略。">
 <meta name="keywords" content="Stable Diffusion,AI绘画,免费AI绘画,ControlNet,LoRA,ComfyUI,SDXL,SD3.5">
 <link rel="canonical" href="https://aitool.aiseo.one/articles/stable-diffusion-review.html">
 <link rel="stylesheet" href="/css/style.css?v=9">
-<meta property="og:title" content="Stable Diffusion 深度评测 2026 - AI工具�?>
-<meta property="og:description" content="免费开源AI绘画完全指南：ControlNet/LoRA/ComfyUI全解析，vs Midjourney对比�?>
+<meta property="og:title" content="Stable Diffusion 深度评测 2026 - AI工具库">
+<meta property="og:description" content="免费开源AI绘画完全指南：ControlNet/LoRA/ComfyUI全解析，vs Midjourney对比。">
 <meta property="og:url" content="https://aitool.aiseo.one/articles/stable-diffusion-review.html">
 <meta property="og:type" content="article">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Stable Diffusion 深度评测 2026：免费开源，但值得学吗�?,"description":"SD3.5 XL全功能评测：ControlNet精准控制、LoRA风格定制、ComfyUI工作流，附vs Midjourney对比和本地部署方案�?,"author":{"@type":"Person","name":"AI工具库编辑团�?},"datePublished":"2026-06-01","dateModified":"2026-06-02","publisher":{"@type":"Organization","name":"AI工具�?},"mainEntityOfPage":"https://aitool.aiseo.one/articles/stable-diffusion-review.html"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Stable Diffusion需要什么显卡？","acceptedAnswer":{"@type":"Answer","text":"最�?GB显存可运行SD1.5，推�?GB+显存跑SDXL和SD3.5。NVIDIA显卡支持最好，AMD和Intel显卡需要额外配置。没有好显卡可以用云GPU服务（RunPod/Vast.ai），$0.3-1/小时�?}},{"@type":"Question","name":"Stable Diffusion和Midjourney选哪个？","acceptedAnswer":{"@type":"Answer","text":"追求画质和开箱即用选Midjourney，追求自由度和可控性选Stable Diffusion。SD免费开源、支持ControlNet精准控制、LoRA任意风格定制，但需要学习成本。最佳策略是两者组合：MJ快速出灵感，SD精修和定制�?}},{"@type":"Question","name":"ComfyUI和Automatic1111选哪个？","acceptedAnswer":{"@type":"Answer","text":"新手选Automatic1111（WebUI）——界面友好、教程多、上手快。进阶用户选ComfyUI——可视化工作流，效率和可定制性更高但学习曲线陡。两者可以共存，功能互补�?}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Stable Diffusion 深度评测 2026：免费开源，但值得学吗？","description":"SD3.5 XL全功能评测：ControlNet精准控制、LoRA风格定制、ComfyUI工作流，附vs Midjourney对比和本地部署方案。","author":{"@type":"Person","name":"AI工具库编辑团队"},"datePublished":"2026-06-01","dateModified":"2026-06-02","publisher":{"@type":"Organization","name":"AI工具库"},"mainEntityOfPage":"https://aitool.aiseo.one/articles/stable-diffusion-review.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Stable Diffusion需要什么显卡？","acceptedAnswer":{"@type":"Answer","text":"最低6GB显存可运行SD1.5，推荐8GB+显存跑SDXL和SD3.5。NVIDIA显卡支持最好，AMD和Intel显卡需要额外配置。没有好显卡可以用云GPU服务（RunPod/Vast.ai），$0.3-1/小时。"}},{"@type":"Question","name":"Stable Diffusion和Midjourney选哪个？","acceptedAnswer":{"@type":"Answer","text":"追求画质和开箱即用选Midjourney，追求自由度和可控性选Stable Diffusion。SD免费开源、支持ControlNet精准控制、LoRA任意风格定制，但需要学习成本。最佳策略是两者组合：MJ快速出灵感，SD精修和定制。"}},{"@type":"Question","name":"ComfyUI和Automatic1111选哪个？","acceptedAnswer":{"@type":"Answer","text":"新手选Automatic1111（WebUI）——界面友好、教程多、上手快。进阶用户选ComfyUI——可视化工作流，效率和可定制性更高但学习曲线陡。两者可以共存，功能互补。"}}]}</script>
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo"><img src="/images/logo.png" alt="AI工具�? height="32"><span>AI工具�?/span></a><ul class="nav-links"><li><a href="/">首页</a></li><li><a href="/#tools">工具评测</a></li><li><a href="/#articles">最新文�?/a></li><li><a href="/about.html">关于</a></li><li><a href="/contact.html">联系</a></li></ul>
+<nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo"><img src="/images/logo.png" alt="AI工具库" height="32"><span>AI工具库</span></a><ul class="nav-links"><li><a href="/">首页</a></li><li><a href="/#tools">工具评测</a></li><li><a href="/#articles">最新文章</a></li><li><a href="/about.html">关于</a></li><li><a href="/contact.html">联系</a></li></ul>
     <button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="切换浅色/暗黑模式">🌙</button>
   </div></nav>
 <div class="breadcrumb container"><a href="/">首页</a> &raquo; <a href="/#tools">工具评测</a> &raquo; Stable Diffusion</div>
 <main><article class="article-detail">
-<h1>Stable Diffusion 深度评测 2026：免费开源，但值得你花时间学吗�?/h1>
-<div class="article-meta"><span>📅 2026-06-02</span><span>📂 分类：AI绘画</span><span>⏱️ 阅读�?9 分钟</span><span>🏷�?标签：Stable Diffusion · 开�?· AI绘画</span></div>
+<h1>Stable Diffusion 深度评测 2026：免费开源，但值得你花时间学吗？</h1>
+<div class="article-meta"><span>📅 2026-06-02</span><span>📂 分类：AI绘画</span><span>⏱️ 阅读约 9 分钟</span><span>🏷️ 标签：Stable Diffusion · 开源 · AI绘画</span></div>
 <div class="article-content">
 
-<div class="highlight-box"><strong>📌 一句话总结�?/strong>Stable Diffusion �?AI 绘画界的"Linux"——免费、开源、自由度无限。它不是"最好用"的工具，但它�?上限最�?的工具。如果你愿意花时间学习，它能做到 Midjourney 做不到的事。如果你不想折腾，�?Midjourney�?/div>
+<div class="highlight-box"><strong>📌 一句话总结：</strong>Stable Diffusion 是 AI 绘画界的"Linux"——免费、开源、自由度无限。它不是"最好用"的工具，但它是"上限最高"的工具。如果你愿意花时间学习，它能做到 Midjourney 做不到的事。如果你不想折腾，选 Midjourney。</div>
 
-<div class="ad-placeholder" style="margin:2rem 0;padding:1rem;border:1px dashed #444;text-align:center;color:#888;border-radius:8px;">【广告位 - 文章顶部�?/div>
+<div class="ad-placeholder" style="margin:2rem 0;padding:1rem;border:1px dashed #444;text-align:center;color:#888;border-radius:8px;">【广告位 - 文章顶部】</div>
 
-<h2>先说清楚：谁应该�?Stable Diffusion，谁不该�?/h2>
-<p>Stable Diffusion 不是给所有人设计的。它�?AI 绘画领域占据一个独特位置：<strong>免费、开源、完全可控，但需要学习成�?/strong>�?/p>
+<h2>先说清楚：谁应该用 Stable Diffusion，谁不该碰</h2>
+<p>Stable Diffusion 不是给所有人设计的。它在 AI 绘画领域占据一个独特位置：<strong>免费、开源、完全可控，但需要学习成本</strong>。</p>
 
 <table class="comparison-table">
-<thead><tr><th>你应该用 SD 如果�?/th><th>你不该用 SD 如果�?/th></tr></thead>
+<thead><tr><th>你应该用 SD 如果…</th><th>你不该用 SD 如果…</th></tr></thead>
 <tbody>
-<tr><td>�?8GB+ 显存的显卡，愿意折腾</td><td>没有好显卡也不想花钱租云 GPU</td></tr>
-<tr><td>需要精确控制构图、姿势、风�?/td><td>只想�?写一句描述出一张好看的�?</td></tr>
-<tr><td>想训练自己的角色/风格模型</td><td>�?AI 参数调优没有兴趣</td></tr>
-<tr><td>预算为零（免费是最重要的）</td><td>愿意每月�?$10-30 换省心体�?/td></tr>
+<tr><td>有 8GB+ 显存的显卡，愿意折腾</td><td>没有好显卡也不想花钱租云 GPU</td></tr>
+<tr><td>需要精确控制构图、姿势、风格</td><td>只想要"写一句描述出一张好看的图"</td></tr>
+<tr><td>想训练自己的角色/风格模型</td><td>对 AI 参数调优没有兴趣</td></tr>
+<tr><td>预算为零（免费是最重要的）</td><td>愿意每月付 $10-30 换省心体验</td></tr>
 <tr><td>想做 NSFW 或敏感题材（无审查）</td><td>需要开箱即用的精美输出</td></tr>
 </tbody></table>
 
-<h2>Stable Diffusion 三大杀手级生�?/h2>
-<p>�?Stable Diffusion 厉害，不是因为基础模型本身——SD3.5 的画质放 Midjourney V7 旁边，差距不小。SD 真正的力量来自它的开放生态�?/p>
+<h2>Stable Diffusion 三大杀手级生态</h2>
+<p>说 Stable Diffusion 厉害，不是因为基础模型本身——SD3.5 的画质放 Midjourney V7 旁边，差距不小。SD 真正的力量来自它的开放生态。</p>
 
-<h3>ControlNet：这�?SD 与所有竞品的分水�?9.8/10</h3>
-<p>ControlNet �?SD �?随机生成"变成�?精准创作"。输入一张线稿、一个人物姿势骨架、一张深度图、一个边缘检测结果——ControlNet 就能按照这个结构生成新图�?/p>
+<h3>ControlNet：这是 SD 与所有竞品的分水岭 9.8/10</h3>
+<p>ControlNet 让 SD 从"随机生成"变成了"精准创作"。输入一张线稿、一个人物姿势骨架、一张深度图、一个边缘检测结果——ControlNet 就能按照这个结构生成新图。</p>
 <p><strong>这能做什么？</strong></p>
 <ul>
-  <li>你会画火柴人 �?ControlNet 帮你变成精致插画</li>
-  <li>你有产品轮廓�?�?ControlNet 帮你渲染成不同材质风�?/li>
-  <li>你想让人物摆特定 pose �?给一�?pose 骨架，生成一百种风格</li>
-  <li>你有一个房间的深度�?�?ControlNet 帮你设计不同装修方案</li>
+  <li>你会画火柴人 → ControlNet 帮你变成精致插画</li>
+  <li>你有产品轮廓图 → ControlNet 帮你渲染成不同材质风格</li>
+  <li>你想让人物摆特定 pose → 给一个 pose 骨架，生成一百种风格</li>
+  <li>你有一个房间的深度图 → ControlNet 帮你设计不同装修方案</li>
 </ul>
-<p>这个能力——对一个图像的结构要素做精确控制——是 Midjourney、DALL·E 至今做不到的。Midjourney 给你完美的输出，但你不能决定画面里人的手放在哪里。ControlNet 可以�?/p>
+<p>这个能力——对一个图像的结构要素做精确控制——是 Midjourney、DALL·E 至今做不到的。Midjourney 给你完美的输出，但你不能决定画面里人的手放在哪里。ControlNet 可以。</p>
 
-<h3>LoRA：风格和角色�?无限皮肤" 9.5/10</h3>
-<p>LoRA 是一种轻量级训练技术，可以�?10-20 分钟内训练出一个特定风格或角色。训练成本极低（6GB 显存就行），效果立竿见影�?/p>
+<h3>LoRA：风格和角色的"无限皮肤" 9.5/10</h3>
+<p>LoRA 是一种轻量级训练技术，可以在 10-20 分钟内训练出一个特定风格或角色。训练成本极低（6GB 显存就行），效果立竿见影。</p>
 <p><strong>实际能做什么：</strong></p>
 <ul>
-  <li>你画�?20 张自己的插画 �?训练 LoRA �?SD 以后所有出图都自动带你的画�?/li>
-  <li>你想做漫�?�?训练主角 LoRA �?所有场景里的主角长得一模一�?/li>
-  <li>你喜欢某个艺术家的风�?�?社区下载现成�?LoRA �?一秒切换到那种风格</li>
+  <li>你画了 20 张自己的插画 → 训练 LoRA → SD 以后所有出图都自动带你的画风</li>
+  <li>你想做漫画 → 训练主角 LoRA → 所有场景里的主角长得一模一样</li>
+  <li>你喜欢某个艺术家的风格 → 社区下载现成的 LoRA → 一秒切换到那种风格</li>
 </ul>
-<p>社区已积累了数万�?LoRA 模型免费下载——赛博朋克风、水墨中国风、宫崎骏风、油管缩略图风格……几乎任何你想得到的风格都有人训练过了�?/p>
+<p>社区已积累了数万个 LoRA 模型免费下载——赛博朋克风、水墨中国风、宫崎骏风、油管缩略图风格……几乎任何你想得到的风格都有人训练过了。</p>
 
-<h3>ComfyUI：从"�?Prompt"�?搭工作流" 9.0/10</h3>
-<p>ComfyUI �?SD 最强的前端工具。它把图像生成可视化成流程图——节点连节点，每一步都看得到�?/p>
-<p><strong>一个典型的高级工作流：</strong>输入 Prompt �?基础模型生成 �?ControlNet 骨架控制构图 �?放大模型提升分辨�?�?面部修复 �?LoRA 注入风格 �?最终输出。每一步都是一个节点，你可以随时插入或删除，完全自定义�?/p>
-<p>学会 ComfyUI 之后，你�?AI 绘画的理解会�?黑箱魔法"变成"可控流程"。代价是学习曲线陡峭——大概需�?3-5 天入门�?/p>
+<h3>ComfyUI：从"填 Prompt"到"搭工作流" 9.0/10</h3>
+<p>ComfyUI 是 SD 最强的前端工具。它把图像生成可视化成流程图——节点连节点，每一步都看得到。</p>
+<p><strong>一个典型的高级工作流：</strong>输入 Prompt → 基础模型生成 → ControlNet 骨架控制构图 → 放大模型提升分辨率 → 面部修复 → LoRA 注入风格 → 最终输出。每一步都是一个节点，你可以随时插入或删除，完全自定义。</p>
+<p>学会 ComfyUI 之后，你对 AI 绘画的理解会从"黑箱魔法"变成"可控流程"。代价是学习曲线陡峭——大概需要 3-5 天入门。</p>
 
-<h2>Stable Diffusion vs Midjourney：不是对手，是互�?/h2>
+<h2>Stable Diffusion vs Midjourney：不是对手，是互补</h2>
 <table class="comparison-table">
 <thead><tr><th>维度</th><th>Stable Diffusion</th><th>Midjourney V7</th></tr></thead>
 <tbody>
-<tr><td>价格</td><td>�?完全免费</td><td>$10-120/�?/td></tr>
-<tr><td>开箱画�?/td><td>⭐⭐�?7.5</td><td>�?⭐⭐⭐⭐�?9.6</td></tr>
-<tr><td>精确控制</td><td>�?⭐⭐⭐⭐�?9.8</td><td>⭐⭐�?6.5</td></tr>
-<tr><td>风格定制</td><td>�?LoRA 无限</td><td>�?受限�?Prompt</td></tr>
-<tr><td>上手难度</td><td>⭐⭐ 4.0（需学习�?/td><td>�?⭐⭐�?6.0</td></tr>
-<tr><td>硬件要求</td><td>�?需要好显卡</td><td>�?无要�?/td></tr>
-<tr><td>内容审查</td><td>�?无（本地部署�?/td><td>�?严格</td></tr>
-<tr><td>社区生�?/td><td>�?开源，极丰�?/td><td>�?Discord 活跃</td></tr>
+<tr><td>价格</td><td>✅ 完全免费</td><td>$10-120/月</td></tr>
+<tr><td>开箱画质</td><td>⭐⭐⭐ 7.5</td><td>✅ ⭐⭐⭐⭐⭐ 9.6</td></tr>
+<tr><td>精确控制</td><td>✅ ⭐⭐⭐⭐⭐ 9.8</td><td>⭐⭐⭐ 6.5</td></tr>
+<tr><td>风格定制</td><td>✅ LoRA 无限</td><td>❌ 受限于 Prompt</td></tr>
+<tr><td>上手难度</td><td>⭐⭐ 4.0（需学习）</td><td>✅ ⭐⭐⭐ 6.0</td></tr>
+<tr><td>硬件要求</td><td>❌ 需要好显卡</td><td>✅ 无要求</td></tr>
+<tr><td>内容审查</td><td>✅ 无（本地部署）</td><td>❌ 严格</td></tr>
+<tr><td>社区生态</td><td>✅ 开源，极丰富</td><td>✅ Discord 活跃</td></tr>
 </tbody></table>
 
-<p><strong>最聪明的策略：两者组合�?/strong>Midjourney 快速出概念和灵�?�?Stable Diffusion 精修和定制。MJ 负责"美丽"，SD 负责"精准"。这是我自己的用法�?/p>
+<p><strong>最聪明的策略：两者组合。</strong>Midjourney 快速出概念和灵感 → Stable Diffusion 精修和定制。MJ 负责"美丽"，SD 负责"精准"。这是我自己的用法。</p>
 
-<div class="ad-placeholder" style="margin:2rem 0;padding:1rem;border:1px dashed #444;text-align:center;color:#888;border-radius:8px;">【广告位 - 文章中部�?/div>
+<div class="ad-placeholder" style="margin:2rem 0;padding:1rem;border:1px dashed #444;text-align:center;color:#888;border-radius:8px;">【广告位 - 文章中部】</div>
 
-<h2>四种部署方案，从零基础到专�?/h2>
+<h2>四种部署方案，从零基础到专业</h2>
 <table class="comparison-table">
-<thead><tr><th>方案</th><th>成本</th><th>硬件</th><th>难度</th><th>适合�?/th></tr></thead>
+<thead><tr><th>方案</th><th>成本</th><th>硬件</th><th>难度</th><th>适合谁</th></tr></thead>
 <tbody>
-<tr><td>在线体验（HuggingFace Space�?/td><td>免费</td><td>�?/td><td>�?/td><td>只想试试�?分钟体验</td></tr>
-<tr><td>云GPU（RunPod / Vast.ai�?/td><td>$0.3-1/小时</td><td>�?/td><td>⭐⭐</td><td>没显卡但要全功能</td></tr>
-<tr><td>本地 Automatic1111 WebUI</td><td>免费</td><td>8GB+ 显存</td><td>⭐⭐�?/td><td><strong>�?新手推荐</strong></td></tr>
-<tr><td>本地 ComfyUI</td><td>免费</td><td>8GB+ 显存</td><td>⭐⭐⭐⭐</td><td>进阶用户，追求效�?/td></tr>
+<tr><td>在线体验（HuggingFace Space）</td><td>免费</td><td>无</td><td>⭐</td><td>只想试试，5分钟体验</td></tr>
+<tr><td>云GPU（RunPod / Vast.ai）</td><td>$0.3-1/小时</td><td>无</td><td>⭐⭐</td><td>没显卡但要全功能</td></tr>
+<tr><td>本地 Automatic1111 WebUI</td><td>免费</td><td>8GB+ 显存</td><td>⭐⭐⭐</td><td><strong>⭐ 新手推荐</strong></td></tr>
+<tr><td>本地 ComfyUI</td><td>免费</td><td>8GB+ 显存</td><td>⭐⭐⭐⭐</td><td>进阶用户，追求效率</td></tr>
 </tbody></table>
 
-<div class="tip-box"><strong>💡 新手入门路径�?/strong>HuggingFace Space�?5分钟体验）→ 本地�?Automatic1111�?天入门）�?下载几个热门 LoRA�?天兴奋期）→ �?ControlNet（终身受益）。总共大约一周从零到能出商业级作品�?/div>
+<div class="tip-box"><strong>💡 新手入门路径：</strong>HuggingFace Space（15分钟体验）→ 本地装 Automatic1111（3天入门）→ 下载几个热门 LoRA（1天兴奋期）→ 学 ControlNet（终身受益）。总共大约一周从零到能出商业级作品。</div>
 
 <h2>SD 的缺点（不避讳）</h2>
 <ol>
-  <li><strong>学习门槛是真实的�?/strong>安装过程涉及 CUDA、Python 环境、模型下载、插件配置——不是双�?exe 就能用的。第一次安装花一整个下午很正常�?/li>
-  <li><strong>不开箱即美�?/strong>同样�?Prompt，Midjourney 出来的图 80% 可以直接用，SD 出来的图需要反复调参和抽卡。正片率（一次生成就满意）大�?30-50%�?/li>
-  <li><strong>需要好显卡�?/strong>8GB 显存是最低门槛——只够跑 SD1.5。SDXL �?SD3.5 推荐 12GB+。笔记本电脑集成显卡就别想了�?/li>
-  <li><strong>社区碎片化�?/strong>模型、LoRA、ControlNet、VAE、Upscaler……下载源分散�?Civitai、HuggingFace、GitHub，新手很容易迷失�?该下哪个"的信息洪流里�?/li>
+  <li><strong>学习门槛是真实的。</strong>安装过程涉及 CUDA、Python 环境、模型下载、插件配置——不是双击 exe 就能用的。第一次安装花一整个下午很正常。</li>
+  <li><strong>不开箱即美。</strong>同样的 Prompt，Midjourney 出来的图 80% 可以直接用，SD 出来的图需要反复调参和抽卡。正片率（一次生成就满意）大约 30-50%。</li>
+  <li><strong>需要好显卡。</strong>8GB 显存是最低门槛——只够跑 SD1.5。SDXL 和 SD3.5 推荐 12GB+。笔记本电脑集成显卡就别想了。</li>
+  <li><strong>社区碎片化。</strong>模型、LoRA、ControlNet、VAE、Upscaler……下载源分散在 Civitai、HuggingFace、GitHub，新手很容易迷失在"该下哪个"的信息洪流里。</li>
 </ol>
 
 <h2>适用人群</h2>
 <ul>
-  <li>�?<strong>追求创作自由的深度玩�?/strong>——SD 的上限取决于你的想象�?技�?/li>
-  <li>�?<strong>需要精确控制构图的设计�?/strong>——ControlNet 是你的秘密武�?/li>
-  <li>�?<strong>有显卡且预算为零的学�?爱好�?/strong>——免费且功能不阉�?/li>
-  <li>�?<strong>想训练个人风�?角色模型的创作�?/strong>——LoRA 成本几乎为零</li>
-  <li>�?<strong>"我只想写一句话出好�?</strong>——�?Midjourney</li>
-  <li>�?<strong>没有显卡也懒得折腾云 GPU</strong>——�?Midjourney</li>
+  <li>✅ <strong>追求创作自由的深度玩家</strong>——SD 的上限取决于你的想象力+技术</li>
+  <li>✅ <strong>需要精确控制构图的设计师</strong>——ControlNet 是你的秘密武器</li>
+  <li>✅ <strong>有显卡且预算为零的学生/爱好者</strong>——免费且功能不阉割</li>
+  <li>✅ <strong>想训练个人风格/角色模型的创作者</strong>——LoRA 成本几乎为零</li>
+  <li>❌ <strong>"我只想写一句话出好图"</strong>——选 Midjourney</li>
+  <li>❌ <strong>没有显卡也懒得折腾云 GPU</strong>——选 Midjourney</li>
 </ul>
 
-<div class="ad-placeholder" style="margin:2rem 0;padding:1rem;border:1px dashed #444;text-align:center;color:#888;border-radius:8px;">【广告位 - 文章底部�?/div>
+<div class="ad-placeholder" style="margin:2rem 0;padding:1rem;border:1px dashed #444;text-align:center;color:#888;border-radius:8px;">【广告位 - 文章底部】</div>
 
 <h2>最终总评</h2>
 <div class="highlight-box" style="border-left: 4px solid #e67e22;">
-  <strong>综合评分�?.0/10</strong><br><br>
-  <strong>Stable Diffusion 不是"更好用的 Midjourney"——它是一条完全不同的路�?/strong>Midjourney 让你做一个消费者，SD 让你做一个创造者。消费者的体验更丝滑，但创造者的自由度无可替代�?br><br>
-  <strong>一句话�?/strong>如果你愿意花一周时间学习，Stable Diffusion 给你的创作自由是任何付费工具给不了的。如果你不愿意——Midjourney �?$10 出更好的图�?
+  <strong>综合评分：9.0/10</strong><br><br>
+  <strong>Stable Diffusion 不是"更好用的 Midjourney"——它是一条完全不同的路。</strong>Midjourney 让你做一个消费者，SD 让你做一个创造者。消费者的体验更丝滑，但创造者的自由度无可替代。<br><br>
+  <strong>一句话：</strong>如果你愿意花一周时间学习，Stable Diffusion 给你的创作自由是任何付费工具给不了的。如果你不愿意——Midjourney 花 $10 出更好的图。
 </div>
 
-<p style="text-align:right;color:#888;margin-top:2rem;">📝 评测更新时间�?026�?�?�?/p>
+<p style="text-align:right;color:#888;margin-top:2rem;">📝 评测更新时间：2026年6月2日</p>
 
 </div></article></main>
-<footer class="footer"><div class="footer-inner"><div><h4>🤖 AI工具�?/h4><p>专注AI工具评测与推荐�?/p></div><div><h4>快速导�?/h4><ul><li><a href="/">首页</a></li><li><a href="/#tools">工具评测</a></li><li><a href="/about.html">关于</a></li><li><a href="/contact.html">联系</a></li></ul></div><div><h4>政策</h4><ul><li><a href="/privacy.html">隐私政策</a></li><li><a href="/sitemap.xml">网站地图</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 AI工具�?/p></div></footer>
+<footer class="footer"><div class="footer-inner"><div><h4>🤖 AI工具库</h4><p>专注AI工具评测与推荐。</p></div><div><h4>快速导航</h4><ul><li><a href="/">首页</a></li><li><a href="/#tools">工具评测</a></li><li><a href="/about.html">关于</a></li><li><a href="/contact.html">联系</a></li></ul></div><div><h4>政策</h4><ul><li><a href="/privacy.html">隐私政策</a></li><li><a href="/sitemap.xml">网站地图</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 AI工具库</p></div></footer>
 <script src="/js/main.js?v=9"></script>
 </body></html>

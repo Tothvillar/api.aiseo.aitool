@@ -1,14 +1,14 @@
-/* ===== AI¹¤¾ßÆÀ²âÕ¾ - °µºÚ¿Æ¼¼·ç ===== */
-/* ĞèÒª´Ó NanoBanana Éú³É2ÕÅÍ¼:
-   1. logo.png  - ÍøÕ¾Logo (ÌáÊ¾´Ê¼ûÏÂ·½)
-   2. hero-bg.png - Hero±³¾°Í¼ (ÌáÊ¾´Ê¼ûÏÂ·½)
-   Í¼Æ¬·ÅÔÚ /images/ Ä¿Â¼ÏÂ */
+ï»¿/* ===== AIå·¥å…·è¯„æµ‹ç«™ - æš—é»‘ç§‘æŠ€é£ ===== */
+/* éœ€è¦ä» NanoBanana ç”Ÿæˆ2å¼ å›¾:
+   1. logo.png  - ç½‘ç«™Logo (æç¤ºè¯è§ä¸‹æ–¹)
+   2. hero-bg.png - HeroèƒŒæ™¯å›¾ (æç¤ºè¯è§ä¸‹æ–¹)
+   å›¾ç‰‡æ”¾åœ¨ /images/ ç›®å½•ä¸‹ */
 
-/* === NANOBANANA ÌáÊ¾´Ê ===
-¡¾Logo ÌáÊ¾´Ê¡¿
+/* === NANOBANANA æç¤ºè¯ ===
+ã€Logo æç¤ºè¯ã€‘
 "Minimalist neon circuit-brain logo icon, cyberpunk tech style, glowing cyan and electric purple lines on pure black background, symmetrical geometric AI neural network pattern, clean vector aesthetic, no text, isolated icon, 512x512, 4k quality, sharp lines, dark mode icon design"
 
-¡¾Hero ±³¾°Í¼ ÌáÊ¾´Ê¡¿  
+ã€Hero èƒŒæ™¯å›¾ æç¤ºè¯ã€‘  
 "A dark abstract tech landscape, cyberpunk data center visualization, holographic wireframe grids extending to horizon, glowing cyan and purple circuit traces, floating digital particles, volumetric fog with neon rim lights, cinematic composition, 16:9 aspect ratio, ultra detailed, 4k, Unreal Engine 5 render style, dark futuristic atmosphere, no text"
 ================================== */
 
@@ -36,7 +36,7 @@
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* === Ç³É«Ö÷Ìâ === */
+/* === æµ…è‰²ä¸»é¢˜ === */
 [data-theme="light"] {
   --bg-primary: #f4f6f9;
   --bg-secondary: #ffffff;
@@ -63,7 +63,7 @@
 
 html { scroll-behavior: smooth; }
 
-/* === É¨ÃèÏßĞ§¹û£¨°µºÚ×¨Êô£© === */
+/* === æ‰«æçº¿æ•ˆæœï¼ˆæš—é»‘ä¸“å±ï¼‰ === */
 body::before {
   content: "";
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -72,7 +72,7 @@ body::before {
 }
 [data-theme="light"] body::before { opacity: 0; }
 
-/* === Êó±ê¸úËæ¹âÔÎ === */
+/* === é¼ æ ‡è·Ÿéšå…‰æ™• === */
 body::after {
   content: "";
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -93,7 +93,7 @@ body {
 a { color: var(--cyan); text-decoration: none; transition: color var(--transition); }
 a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 
-/* === µ¼º½À¸ === */
+/* === å¯¼èˆªæ  === */
 .nav {
   background: rgba(7, 7, 12, 0.92);
   border-bottom: 1px solid var(--border);
@@ -111,7 +111,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
   letter-spacing: 0.05em;
 }
 .nav-logo img { height: 36px; width: auto; }
-/* Logo ÉÁË¸ */
+/* Logo é—ªçƒ */
 @keyframes logoPulse {
   0%, 100% { filter: drop-shadow(0 0 6px var(--cyan-glow)); }
   50% { filter: drop-shadow(0 0 16px var(--cyan)); }
@@ -128,7 +128,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 .nav-links a:hover, .nav-links a.active { color: var(--cyan); }
 
-/* === Ö÷ÌâÇĞ»»°´Å¥ === */
+/* === ä¸»é¢˜åˆ‡æ¢æŒ‰é’® === */
 .theme-toggle {
   background: none; border: 1px solid var(--border);
   color: var(--text-secondary); font-size: 1.2rem;
@@ -139,7 +139,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 }
 .theme-toggle:hover { color: var(--cyan); border-color: var(--cyan); }
 
-/* === ÈİÆ÷ === */
+/* === å®¹å™¨ === */
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
 /* === Hero === */
@@ -157,7 +157,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
   animation: gradientShift 4s ease infinite;
   position: relative; display: inline-block;
 }
-/* ±êÌâ¹âÉ¨ */
+/* æ ‡é¢˜å…‰æ‰« */
 .hero h1::after {
   content: "";
   position: absolute; top: 0; left: -80%; width: 50%; height: 100%;
@@ -175,7 +175,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
   100% { left: 130%; }
 }
 
-/* ´ò×Ö»úĞ§¹û */
+/* æ‰“å­—æœºæ•ˆæœ */
 .hero .typewriter {
   font-size: 1.2rem; color: var(--text-secondary); max-width: 700px;
   margin: 0 auto 32px; min-height: 2em;
@@ -209,7 +209,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 }
 .hero-search button:hover { box-shadow: 0 0 24px var(--cyan-glow); transform: translateX(2px); }
 
-/* === Hero Êı¾İÍ³¼ÆÌõ === */
+/* === Hero æ•°æ®ç»Ÿè®¡æ¡ === */
 .hero-stats {
   display: flex; justify-content: center; gap: 40px;
   margin: 32px 0 28px; flex-wrap: wrap;
@@ -241,13 +241,13 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 }
 .cat-tag.active { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-dim); }
 
-/* === Í¨ÓÃÇø¿é === */
+/* === é€šç”¨åŒºå— === */
 .section { padding: 80px 0; }
 .section-title {
   font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 8px;
   position: relative; display: inline-block; left: 50%; transform: translateX(-50%);
 }
-/* ·ÖÇø±êÌâÄŞºçÏÂ»®Ïß */
+/* åˆ†åŒºæ ‡é¢˜éœ“è™¹ä¸‹åˆ’çº¿ */
 .section-title::after {
   content: "";
   position: absolute; bottom: -6px; left: 50%; width: 0; height: 3px;
@@ -260,13 +260,13 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 .section-title.revealed::after { width: 60%; }
 .section-desc { text-align: center; color: var(--text-secondary); margin-bottom: 40px; font-size: 1.05rem; }
 
-/* === ¿¨Æ¬½¥Èë¶¯»­£¨½ö¶¨Òåkeyframe£¬ÓÉJS´¥·¢£© === */
+/* === å¡ç‰‡æ¸å…¥åŠ¨ç”»ï¼ˆä»…å®šä¹‰keyframeï¼Œç”±JSè§¦å‘ï¼‰ === */
 @keyframes cardReveal {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* === ¹¤¾ß¿¨Æ¬ === */
+/* === å·¥å…·å¡ç‰‡ === */
 .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
 .tool-card {
   background: var(--bg-card); border-radius: var(--radius);
@@ -275,11 +275,11 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
   position: relative; overflow: hidden;
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
-/* ¿¨Æ¬hover¹âÔÎ + ±ß¿òºôÎü */
+/* å¡ç‰‡hoverå…‰æ™• + è¾¹æ¡†å‘¼å¸ */
 .tool-card::before {
   content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
   background: radial-gradient(circle at center, rgba(0,240,255,0.06), transparent 60%);
-  opacity: 0; transition: opacity 0.4s;
+  opacity: 0; transition: opacity 0.4s; pointer-events: none;
 }
 .tool-card:hover::before { opacity: 1; }
 .tool-card:hover {
@@ -322,7 +322,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 .tool-score .stars { color: var(--amber); letter-spacing: 2px; }
 .tool-link { font-size: .85rem; font-weight: 600; }
 
-/* === ¹ã¸æÎ» === */
+/* === å¹¿å‘Šä½ === */
 .ad-placeholder {
   background: rgba(14,14,26,0.5); border: 2px dashed var(--border);
   border-radius: var(--radius); padding: 32px; text-align: center;
@@ -330,7 +330,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 }
 .ad-placeholder p { margin: 0; }
 
-/* === ÎÄÕÂ¿¨Æ¬ === */
+/* === æ–‡ç« å¡ç‰‡ === */
 .article-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px; }
 .article-card {
   background: var(--bg-card); border-radius: var(--radius);
@@ -366,12 +366,12 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
   box-shadow: 0 0 30px var(--cyan-glow);
 }
 
-/* === Ãæ°üĞ¼ === */
+/* === é¢åŒ…å±‘ === */
 .breadcrumb { padding: 20px 0; color: var(--text-dim); font-size: .88rem; }
 .breadcrumb a { color: var(--text-secondary); }
 .breadcrumb a:hover { color: var(--cyan); }
 
-/* === ÎÄÕÂÄÚÈİ === */
+/* === æ–‡ç« å†…å®¹ === */
 .article-detail { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
 .article-detail h1 {
   font-size: 2.2rem; font-weight: 900; margin-bottom: 16px; line-height: 1.3;
@@ -391,7 +391,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 .article-content strong { color: var(--text); }
 .article-content em { color: var(--cyan); font-style: normal; }
 
-/* === ¶Ô±È±í¸ñ === */
+/* === å¯¹æ¯”è¡¨æ ¼ === */
 .comparison-table {
   width: 100%; border-collapse: collapse; margin: 20px 0; font-size: .88rem;
   border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
@@ -417,7 +417,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
   color: var(--text-secondary);
 }
 
-/* === Ò³½Å === */
+/* === é¡µè„š === */
 .footer {
   background: var(--bg-secondary); color: var(--text-dim);
   padding: 48px 0 24px; margin-top: 60px;
@@ -454,7 +454,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
   color: var(--text-dim);
 }
 
-/* === Í¨ÓÃÒ³Ãæ === */
+/* === é€šç”¨é¡µé¢ === */
 .page-content { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
 .page-content h1 { font-size: 2rem; font-weight: 900; margin-bottom: 24px; }
 .page-content h2 { font-size: 1.4rem; font-weight: 700; margin: 32px 0 16px; color: var(--cyan); }
@@ -485,7 +485,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 }
 .btn-primary:hover { box-shadow: 0 0 24px var(--cyan-glow); }
 
-/* === ´ó¶Ô±È±í¸ñ (Ê×Ò³ÓÃµÄ) === */
+/* === å¤§å¯¹æ¯”è¡¨æ ¼ (é¦–é¡µç”¨çš„) === */
 .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: .92rem; }
 .compare-table thead th {
   background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(180,78,255,0.2));
@@ -499,7 +499,7 @@ a:hover { color: var(--purple); text-shadow: 0 0 8px var(--purple-glow); }
 .compare-table tbody tr:hover td { background: var(--cyan-dim); }
 .compare-table .price { font-weight: 700; color: var(--cyan); }
 
-/* === ÏìÓ¦Ê½ === */
+/* === å“åº”å¼ === */
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hero h1 { font-size: 2rem; }
