@@ -1,8 +1,8 @@
-// ===== AI工具评测站 - 暗黑科技风 JS =====
+// ===== AI工具评测�?- 暗黑科技�?JS =====
 (function() {
   'use strict';
 
-  // === 打字机效果 ===
+  // === 打字机效�?===
   function initTypewriter() {
     const el = document.querySelector('.typewriter');
     if (!el) return;
@@ -35,14 +35,14 @@
     type();
   }
 
-  // === 卡片入场动画（JS仅负责stagger延迟，可见性由CSS保证） ===
+  // === 卡片入场动画（JS仅负责stagger延迟，可见性由CSS保证�?===
   function initScrollReveal() {
     document.querySelectorAll('.tool-card, .article-card').forEach((card, i) => {
       card.style.animation = `cardReveal 0.5s ease both ${i * 0.06}s`;
     });
   }
 
-  // === 分类筛选（事件委托） ===
+  // === 分类筛选（事件委托�?===
   function initCategoryFilter() {
     const tagsContainer = document.querySelector('.categories');
     if (!tagsContainer) return;
@@ -94,7 +94,7 @@
     if (btn) btn.addEventListener('click', doSearch);
     // 回车搜索
     input.addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
-    // 清空输入框时恢复所有卡片
+    // 清空输入框时恢复所有卡�?
     input.addEventListener('input', () => { if (!input.value.trim()) resetSearch(); });
   }
 
@@ -157,7 +157,7 @@
 
     function setTheme(light) {
       html.setAttribute('data-theme', light ? 'light' : 'dark');
-      btn.textContent = light ? '☀️' : '🌙';
+      btn.textContent = light ? '☀�? : '🌙';
       localStorage.setItem('aitool-theme', light ? 'light' : 'dark');
     }
 
@@ -165,7 +165,7 @@
       setTheme(html.getAttribute('data-theme') !== 'light');
     });
 
-    // 页面加载时应用已保存的主题
+    // 页面加载时应用已保存的主�?
     const saved = localStorage.getItem('aitool-theme');
     if (saved === 'light') setTheme(true);
   }
@@ -179,6 +179,15 @@
     initSectionTitles();
     initCategoryFilter();
     initSearch();
-    initMouseGlow();
+  
+  // === ��Ƭ����ɵ����ί�е��ڲ�tool-link�� ===
+  document.addEventListener('click', (e) => {
+    const card = e.target.closest('.tool-card');
+    if (card) {
+      const link = card.querySelector('.tool-link');
+      if (link) window.location.href = link.getAttribute('href');
+    }
+  });
+  initMouseGlow();
   });
 })();
