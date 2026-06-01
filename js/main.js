@@ -114,6 +114,29 @@
     }
   }
 
+  // === 分类筛选 ===
+  function initCategoryFilter() {
+    const tags = document.querySelectorAll('.cat-tag');
+    if (!tags.length) return;
+    const cards = document.querySelectorAll('.tool-card');
+    
+    tags.forEach(tag => {
+      tag.addEventListener('click', function() {
+        const cat = this.dataset.category;
+        tags.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        
+        cards.forEach(card => {
+          if (cat === 'all' || card.dataset.category === cat) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
   // === 搜索 ===
   function initSearch() {
     const input = document.getElementById('toolSearch');
@@ -141,6 +164,7 @@
     initTypewriter();
     initParticles();
     initScrollReveal();
+    initCategoryFilter();
     initSearch();
     initMouseGlow();
   });
