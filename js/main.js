@@ -70,16 +70,32 @@
   }
 
   // === 搜索 ===
+  // === 搜索 ===
   function initSearch() {
     const input = document.getElementById('toolSearch');
+    const btn = document.querySelector('.hero-search button');
     if (!input) return;
-    input.addEventListener('input', function() {
-      const q = this.value.toLowerCase();
+
+    function doSearch() {
+      const q = input.value.toLowerCase().trim();
       document.querySelectorAll('.tool-card').forEach(card => {
         const text = card.textContent.toLowerCase();
-        card.style.display = q && !text.includes(q) ? 'none' : '';
+        card.style.display = !q || text.includes(q) ? '' : 'none';
       });
-    });
+    }
+
+    function resetSearch() {
+      document.querySelectorAll('.tool-card').forEach(card => {
+        card.style.display = '';
+      });
+    }
+
+    // 按钮点击搜索
+    if (btn) btn.addEventListener('click', doSearch);
+    // 回车搜索
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
+    // 清空输入框时恢复所有卡片
+    input.addEventListener('input', () => { if (!input.value.trim()) resetSearch(); });
   }
 
   // === 鼠标光晕跟随 ===
