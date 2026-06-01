@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursor 从入门到精通：2026年AI编程完全指南 - AI工具库</title>
+<meta name="description" content="Cursor从安装配置到高级技巧的完整教程：Composer多文件编辑、Agent模式、快捷键、Prompt技巧、项目设置优化，帮你10倍提升编程效率。">
+<meta name="keywords" content="Cursor教程,Cursor入门,Cursor使用技巧,Cursor快捷键,Cursor AI编程教程">
+<link rel="canonical" href="https://aitool.aiseo.one/articles/cursor-guide.html">
+<link rel="stylesheet" href="/css/style.css">
+<meta property="og:title" content="Cursor 从入门到精通：2026年AI编程完全指南 - AI工具库">
+<meta property="og:description" content="从安装到精通Cursor的完整教程，10倍提升编程效率。">
+<meta property="og:url" content="https://aitool.aiseo.one/articles/cursor-guide.html">
+<meta property="og:type" content="article">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cursor 从入门到精通：2026年AI编程完全指南","description":"Cursor从安装配置到高级技巧的完整教程。","author":{"@type":"Person","name":"AI工具库"},"datePublished":"2026-06-01","dateModified":"2026-06-01","publisher":{"@type":"Organization","name":"AI工具库"}}</script>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo">🤖 <span>AI工具库</span></a><ul class="nav-links"><li><a href="/">首页</a></li><li><a href="/#tools">工具评测</a></li><li><a href="/#articles">最新文章</a></li><li><a href="/about.html">关于</a></li><li><a href="/contact.html">联系</a></li></ul></div></nav>
+<div class="breadcrumb container"><a href="/">首页</a> &raquo; <a href="/#articles">文章</a> &raquo; Cursor 从入门到精通</div>
+<main><article class="article-detail">
+<h1>Cursor 从入门到精通：2026年AI编程完全指南</h1>
+<div class="article-meta"><span>📅 2026-06-01</span><span>📂 分类：AI编程</span><span>⏱️ 阅读约10分钟</span></div>
+<div class="article-content">
+<div class="highlight-box"><strong>📌 核心观点：</strong>Cursor不只是"更聪明的代码补全"——当你学会用Composer、Agent模式和正确的Prompt技巧后，你的编程效率能提升5-10倍。本文从零开始，带你从安装到精通。</div>
+
+<h2>第一部分：快速上手</h2>
+<h3>1.1 安装与初始设置</h3>
+<p>从 cursor.com 下载安装包，安装过程与 VS Code 完全一样（它本身就是VS Code的分支）。首次启动会询问是否从VS Code导入设置、扩展和快捷键——强烈建议选择"是"，这样你无需重新配置任何东西。</p>
+<p>登录后进入设置，配置AI模型：</p>
+<ul><li><strong>默认模型：</strong>claude-4-sonnet（中文和编码质量最佳）</li><li><strong>备用模型：</strong>gpt-4o（多模态兼容）</li><li><strong>补全模型：</strong>保持默认</li></ul>
+
+<h3>1.2 三个核心操作模式（必须掌握）</h3>
+<p>Cursor有四种与AI交互的方式，每种对应不同场景：</p>
+<table class="comparison-table"><thead><tr><th>功能</th><th>快捷键</th><th>用途</th></tr></thead><tbody><tr><td>Tab补全</td><td>Tab</td><td>AI预测你接下来要写的代码，按Tab接受</td></tr><tr><td>内联聊天</td><td>Ctrl+L (Cmd+L)</td><td>选中代码→问AI问题/让AI修改</td></tr><tr><td>Composer</td><td>Ctrl+I (Cmd+I)</td><td>让AI生成或修改跨文件代码</td></tr><tr><td>Agent模式</td><td>Composer中切换</td><td>AI自主完成多步骤任务</td></tr></tbody></table>
+
+<h2>第二部分：掌握 Composer — 多文件编辑的秘密武器</h2>
+<p>Composer是Cursor区别于所有其他AI编程工具的核心功能。它不再局限于当前文件，而是能理解整个项目、修改多个文件。</p>
+
+<h3>2.1 Composer的基础用法</h3>
+<p>按 Ctrl+I 打开Composer，输入自然语言需求。例如：</p>
+<p><em>"在项目的 Navbar 组件中添加一个深色模式切换按钮，同步更新 CSS 变量"</em></p>
+<p>Composer会：自动找到Navbar组件文件→理解深色模式相关的CSS变量→生成修改计划→展示diff→你确认后应用。整个过程涉及3-5个文件，Cursor一次处理。</p>
+
+<h3>2.2 Composer实战技巧</h3>
+<ol>
+<li><strong>加上 @Files 指定上下文：</strong>在Composer中用 @文件名 引用特定文件，AI会更精确。比如 @Navbar.tsx @theme.css 把登录页面改成深色模式。</li>
+<li><strong>分批修改而非一把梭：</strong>复杂任务分步骤来。先"重构数据结构"，再"更新UI组件"，最后"修改API调用"。每步确认后再进行下一步。</li>
+<li><strong>给出约束条件：</strong>"不要改动已有的API接口""保持向后兼容""用TypeScript严格模式"。约束越具体，输出越准确。</li>
+</ol>
+
+<h2>第三部分：Agent模式 — 让AI自主编程</h2>
+<p>2026年Cursor新增的Agent模式是真正的"AI程序员"。它不只是写代码——它能：写代码→运行测试→读报错→修bug→重新测试，循环直到通过。</p>
+
+<h3>3.1 什么时候用Agent？</h3>
+<ul><li>✅ 功能开发：描述需求，让Agent实现并验证</li><li>✅ Bug修复：把报错信息贴进去，Agent自己排查</li><li>✅ 重构：描述重构目标，Agent自己规划步骤</li><li>✅ 写测试：指定要测试的函数，Agent生成测试并运行</li></ul>
+
+<h3>3.2 Agent使用技巧</h3>
+<ul>
+<li><strong>给Agent明确的验收标准：</strong>"实现一个API端点 /api/users，返回JSON格式的用户列表，支持分页参数 page 和 limit，写单元测试并确保通过。"</li>
+<li><strong>Agent失败时不要重新开始：</strong>给它反馈"测试第3个用例失败了，检查边界条件"，它会在已有基础上继续修改。</li>
+<li><strong>小任务用Agent，大任务分拆：</strong>一个完整的"重构整个用户系统"会让Agent迷失。拆成"重构数据模型""更新API层""更新前端组件"三步。</li>
+</ul>
+
+<h2>第四部分：Prompt工程 — 决定AI输出质量的关键</h2>
+<p>同样的Cursor，不同Prompt的效果天差地别。掌握这些Prompt模板，效果立竿见影。</p>
+
+<h3>4.1 代码生成的黄金模板</h3>
+<div class="tip-box"><strong>模板：</strong>角色 + 目标 + 约束 + 输出格式<br>
+<em>示例："你是一个React专家。创建一个用户登录表单组件，包含邮箱和密码输入框、记住我复选框、提交按钮。用TypeScript编写，使用useState管理状态，加上基本的邮箱格式验证。输出完整的组件代码。"</em></div>
+
+<h3>4.2 代码解释的模板</h3>
+<div class="tip-box"><strong>模板：</strong>"解释以下代码，按 [功能概述 / 执行流程 / 关键设计 / 潜在问题] 四个部分组织"</div>
+
+<h3>4.3 Code Review的模板</h3>
+<div class="tip-box"><strong>模板：</strong>"Review以下代码，按 [安全问题 / 性能问题 / 可读性问题 / 最佳实践违反] 四个方面给出建议"</div>
+
+<h3>4.4 创建 .cursorrules 文件</h3>
+<p>在项目根目录创建 .cursorrules 文件，写入项目规则。Cursor在所有对话中都会自动参考这个文件：</p>
+<p style="background:#1e1e1e;color:#d4d4d4;padding:16px;border-radius:8px;font-family:monospace;font-size:14px;">
+# 项目规则<br>
+- 使用TypeScript + React，严格模式<br>
+- 组件放在 src/components/，页面放在 src/pages/<br>
+- API调用封装在 src/services/，不要直接在组件中fetch<br>
+- CSS使用Tailwind，禁止内联style<br>
+- 所有异步操作要有loading和error状态<br>
+- 函数组件使用const + 箭头函数<br>
+- 命名：组件PascalCase，文件kebab-case
+</p>
+
+<h2>第五部分：效率倍增的快捷键与习惯</h2>
+<table class="comparison-table"><thead><tr><th>快捷键</th><th>功能</th><th>使用频率</th></tr></thead><tbody>
+<tr><td>Ctrl+I</td><td>打开Composer</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>Ctrl+L</td><td>内联聊天</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>Ctrl+K</td><td>行内编辑（修改选中代码）</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td>Tab</td><td>接受AI建议</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>Ctrl+Shift+I</td><td>在终端中打开Composer</td><td>⭐⭐⭐</td></tr>
+<tr><td>Ctrl+Enter</td><td>让AI搜索项目了解上下文</td><td>⭐⭐⭐⭐</td></tr>
+</tbody></table>
+
+<h2>第六部分：常见问题</h2>
+<p><strong>Q: Cursor卡顿/索引慢怎么办？</strong></p>
+<p>A: 设置中调整Codebase Indexing范围，排除node_modules、.git、dist等目录。</p>
+<p><strong>Q: 免费版够用吗？</strong></p>
+<p>A: 对于个人开发者，免费版足够。每月500次快速请求和无限慢速请求，Composer和Agent都能用。Pro版主要区别是次数不限。</p>
+<p><strong>Q: Cursor和VS Code能同时装吗？</strong></p>
+<p>A: 可以。Cursor和VS Code可以并行使用，共享同一套扩展和设置。切换零成本。</p>
+
+<div class="highlight-box"><strong>📌 开始行动：</strong>安装Cursor → 导入VS Code配置 → 选claude-4模型 → 创建.cursorrules → 用Composer做一个真实任务。24小时内你就能感受到效率的明显提升。</div>
+</div></article></main>
+<footer class="footer"><div class="footer-inner"><div><h4>🤖 AI工具库</h4><p>专注AI工具评测与推荐。</p></div><div><h4>快速导航</h4><ul><li><a href="/">首页</a></li><li><a href="/#tools">工具评测</a></li><li><a href="/about.html">关于</a></li><li><a href="/contact.html">联系</a></li></ul></div><div><h4>政策</h4><ul><li><a href="/privacy.html">隐私政策</a></li><li><a href="/sitemap.xml">网站地图</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 AI工具库</p></div></footer>
+</body></html>
