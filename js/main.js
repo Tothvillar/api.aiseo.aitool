@@ -35,63 +35,6 @@
     type();
   }
 
-  // === 粒子系统 ===
-  function initParticles() {
-    const canvas = document.getElementById('particleCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animId;
-
-    function resize() {
-      const hero = canvas.parentElement;
-      canvas.width = hero.offsetWidth;
-      canvas.height = hero.offsetHeight;
-    }
-
-    class Particle {
-      constructor() {
-        this.reset();
-        this.y = Math.random() * canvas.height;
-      }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = -10;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedY = Math.random() * 0.6 + 0.1;
-        this.speedX = (Math.random() - 0.5) * 0.3;
-        this.opacity = Math.random() * 0.5 + 0.1;
-        this.color = Math.random() > 0.5 ? '0,240,255' : '180,78,255';
-      }
-      update() {
-        this.y += this.speedY;
-        this.x += this.speedX;
-        if (this.y > canvas.height + 10) this.reset();
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${this.color},${this.opacity})`;
-        ctx.fill();
-      }
-    }
-
-    resize();
-    for (let i = 0; i < 90; i++) {
-      particles.push(new Particle());
-    }
-    window.addEventListener('resize', resize);
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => { p.update(); p.draw(); });
-      animId = requestAnimationFrame(animate);
-    }
-    animate();
-  }
-
   // === 卡片入场动画（JS仅负责stagger延迟，可见性由CSS保证） ===
   function initScrollReveal() {
     document.querySelectorAll('.tool-card, .article-card').forEach((card, i) => {
@@ -151,7 +94,6 @@
   // === 启动 ===
   document.addEventListener('DOMContentLoaded', () => {
     initTypewriter();
-    initParticles();
     initScrollReveal();
     initCategoryFilter();
     initSearch();
