@@ -1,25 +1,50 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI工具库 - 发现最好用的AI工具 | 2026最新AI工具评测排行榜</title>
-  <meta name="description" content="AI工具库（aitool.aiseo.one）专注AI工具评测与推荐，覆盖AI写作、AI绘画、AI编程、AI视频、AI办公等领域，提供客观真实的AI工具对比和使用教程。">
-  <meta name="keywords" content="AI工具,AI工具评测,AI工具推荐,AI写作工具,AI绘画工具,AI编程工具,免费AI工具,AI工具排行">
+  <meta name="description" content="AI工具库专注AI工具深度评测与推荐，覆盖Claude、ChatGPT、Midjourney、Cursor等热门工具。真实使用体验、横向对比、免费工具推荐。">
+  <meta name="keywords" content="AI工具,AI工具评测,AI工具推荐,AI写作工具,AI绘画工具,AI编程工具,免费AI工具,Claude,ChatGPT,Midjourney,Cursor">
   <link rel="canonical" href="https://aitool.aiseo.one/">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/style.css?v=10">
+
   <!-- Open Graph -->
   <meta property="og:title" content="AI工具库 - 发现最好用的AI工具">
-  <meta property="og:description" content="2026最新AI工具评测排行榜，覆盖AI写作、绘画、编程、视频、办公等领域。">
+  <meta property="og:description" content="2026最新AI工具深度评测，覆盖写作、绘画、编程、视频等领域。真实体验 + 横向对比。">
   <meta property="og:url" content="https://aitool.aiseo.one/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AI工具库">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI工具库 - 发现最好用的AI工具">
+  <meta name="twitter:description" content="2026最新AI工具深度评测，覆盖写作、绘画、编程、视频等领域。">
+
   <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9960285713299805" crossorigin="anonymous"></script>
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AI工具库",
+    "url": "https://aitool.aiseo.one/",
+    "description": "专注AI工具深度评测与推荐的中文平台",
+    "inLanguage": "zh-CN"
+  }
+  </script>
 </head>
 <body>
+
 <div id="readingProgressBar"></div>
 
 <!-- 导航栏 -->
@@ -29,7 +54,8 @@
     <ul class="nav-links">
       <li><a href="/" class="active">首页</a></li>
       <li><a href="/tools.html">工具评测</a></li>
-      <li><a href="/articles.html">最新文章</a></li><li><a href="/opensource.html">开源实战</a></li>
+      <li><a href="/articles.html">最新文章</a></li>
+      <li><a href="/opensource.html">开源实战</a></li>
       <li><a href="/about.html">关于</a></li>
       <li><a href="/contact.html">联系</a></li>
     </ul>
@@ -39,41 +65,30 @@
 
 <!-- Hero -->
 <section class="hero" id="hero">
-  <h1>发现最好用的AI工具</h1>
-  <div class="typewriter" data-texts='["客观评测 · 真实对比 · 帮你选对工具","覆盖AI写作、绘画、编程、视频、办公等10+领域","发掘2026年最值得使用的AI技术"]'>
+  <h1>发现最好用的 AI 工具</h1>
+  <div class="typewriter" data-texts='["客观评测 · 真实对比 · 帮你选对工具","覆盖 AI 写作、绘画、编程、视频等 10+ 领域","发掘 2026 年最值得使用的技术"]'>
     <span class="cursor"></span>
   </div>
   <div class="hero-search">
-    <input type="text" id="toolSearch" placeholder="搜索AI工具，如「AI写作」「免费AI绘图」...">
+    <input type="text" id="toolSearch" placeholder="搜索 AI 工具，如「AI 写作」「免费 AI 绘图」...">
     <button>搜索</button>
   </div>
   <div class="hero-stats">
     <div class="stat-item"><span class="stat-num">20+</span><span class="stat-label">深度评测</span></div>
     <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label">覆盖领域</span></div>
     <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">真实体验</span></div>
-    <div class="stat-item"><span class="stat-num">每日</span><span class="stat-label">持续更新</span></div>
-  </div>
-  <div class="categories">
-    <span class="cat-tag active" data-category="all">全部</span>
-    <span class="cat-tag" data-category="writing">AI写作</span>
-    <span class="cat-tag" data-category="image">AI绘画</span>
-    <span class="cat-tag" data-category="coding">AI编程</span>
-    <span class="cat-tag" data-category="video">AI视频</span>
-    <span class="cat-tag" data-category="office">AI办公</span>
-    <span class="cat-tag" data-category="free">免费工具</span>
   </div>
 </section>
 
-<!-- 工具评测区 -->
+<!-- 精选工具 TOP 4 -->
 <section class="section" id="tools">
   <div class="container">
-    <h2 class="section-title">🔥 2026年6月AI工具排行榜</h2>
-    <p class="section-desc">基于真实使用体验、功能完整度、性价比综合评分</p>
+    <h2 class="section-title">精选工具推荐</h2>
+    <p class="section-desc">基于真实使用体验和综合评分，每月更新排名</p>
     <div class="tool-grid">
 
-      <!-- AI写作工具 -->
       <article class="tool-card" data-category="writing">
-        <span class="tool-rank">写作类 TOP 1</span>
+        <span class="tool-rank">TOP 1</span>
         <div class="tool-card-header">
           <div class="tool-icon">✍️</div>
           <div>
@@ -81,16 +96,16 @@
             <div class="tool-score"><span class="stars">★★★★★</span> 9.5</div>
           </div>
         </div>
-        <div class="tool-tags"><span class="tool-tag">AI写作</span><span class="tool-tag free">免费可用</span></div>
-        <p>长文写作能力最强，中文表达流畅自然，200K超长上下文适合深度写作和研究。Artifacts功能可实时预览代码和文档。</p>
+        <div class="tool-tags"><span class="tool-tag">AI 写作</span><span class="tool-tag free">免费可用</span></div>
+        <p>长文写作能力最强，中文表达流畅自然，200K 超长上下文适合深度写作和研究。Artifacts 功能可实时预览代码和文档。</p>
         <div class="tool-meta">
-          <span>💰 免费版可用 / Pro $20/月</span>
+          <span>免费版可用 / Pro $20/月</span>
           <a href="/articles/claude-review.html" class="tool-link">详细评测 →</a>
         </div>
       </article>
 
       <article class="tool-card" data-category="writing">
-        <span class="tool-rank">写作类 TOP 2</span>
+        <span class="tool-rank">TOP 2</span>
         <div class="tool-card-header">
           <div class="tool-icon">📝</div>
           <div>
@@ -98,17 +113,16 @@
             <div class="tool-score"><span class="stars">★★★★★</span> 9.3</div>
           </div>
         </div>
-        <div class="tool-tags"><span class="tool-tag">AI写作</span><span class="tool-tag free">免费可用</span></div>
-        <p>生态最完善，GPTs商店和插件系统让功能无限扩展。GPT-4o多模态能力强，支持图片理解、数据分析。</p>
+        <div class="tool-tags"><span class="tool-tag">AI 写作</span><span class="tool-tag free">免费可用</span></div>
+        <p>生态最完善，GPTs 商店和插件系统让功能无限扩展。GPT-4o 多模态能力强，支持图片理解、数据分析。</p>
         <div class="tool-meta">
-          <span>💰 免费版可用 / Plus $20/月</span>
+          <span>免费版可用 / Plus $20/月</span>
           <a href="/articles/chatgpt-review.html" class="tool-link">详细评测 →</a>
         </div>
       </article>
 
-      <!-- AI绘画工具 -->
       <article class="tool-card" data-category="image">
-        <span class="tool-rank">绘画类 TOP 1</span>
+        <span class="tool-rank">TOP 3</span>
         <div class="tool-card-header">
           <div class="tool-icon">🎨</div>
           <div>
@@ -116,34 +130,16 @@
             <div class="tool-score"><span class="stars">★★★★★</span> 9.6</div>
           </div>
         </div>
-        <div class="tool-tags"><span class="tool-tag">AI绘画</span></div>
-        <p>艺术风格最丰富，V7版本画质大幅提升。角色一致性、场景编辑等新功能让创作更自由。</p>
+        <div class="tool-tags"><span class="tool-tag">AI 绘画</span></div>
+        <p>艺术风格最丰富，V7 版本画质大幅提升。角色一致性、场景编辑等新功能让创作更自由。</p>
         <div class="tool-meta">
-          <span>💰 $10/月起</span>
+          <span>$10/月起</span>
           <a href="/articles/midjourney-review.html" class="tool-link">详细评测 →</a>
         </div>
       </article>
 
-      <article class="tool-card" data-category="image">
-        <span class="tool-rank">绘画类 TOP 2</span>
-        <div class="tool-card-header">
-          <div class="tool-icon">🖼️</div>
-          <div>
-            <h3>Stable Diffusion</h3>
-            <div class="tool-score"><span class="stars">★★★★☆</span> 9.0</div>
-          </div>
-        </div>
-        <div class="tool-tags"><span class="tool-tag">AI绘画</span><span class="tool-tag free">免费开源</span></div>
-        <p>完全开源免费，生态最丰富（ControlNet、LoRA等）。本地部署不受限制，适合深度玩家。</p>
-        <div class="tool-meta">
-          <span>💰 免费开源</span>
-          <a href="/articles/stable-diffusion-review.html" class="tool-link">详细评测 →</a>
-        </div>
-      </article>
-
-      <!-- AI编程工具 -->
       <article class="tool-card" data-category="coding">
-        <span class="tool-rank">编程类 TOP 1</span>
+        <span class="tool-rank">TOP 4</span>
         <div class="tool-card-header">
           <div class="tool-icon">💻</div>
           <div>
@@ -151,141 +147,67 @@
             <div class="tool-score"><span class="stars">★★★★★</span> 9.4</div>
           </div>
         </div>
-        <div class="tool-tags"><span class="tool-tag">AI编程</span><span class="tool-tag free">免费可用</span></div>
-        <p>AI原生IDE，Composer功能可一次性修改多个文件，上下文理解能力强，是目前最强的AI编程工具。</p>
+        <div class="tool-tags"><span class="tool-tag">AI 编程</span><span class="tool-tag free">免费可用</span></div>
+        <p>AI 原生 IDE，Composer 功能可一次性修改多个文件，上下文理解能力强，是目前最强的 AI 编程工具。</p>
         <div class="tool-meta">
-          <span>💰 免费版可用 / Pro $20/月</span>
+          <span>免费版可用 / Pro $20/月</span>
           <a href="/articles/cursor-review.html" class="tool-link">详细评测 →</a>
         </div>
       </article>
 
-      <article class="tool-card" data-category="coding">
-        <span class="tool-rank">编程类 TOP 2</span>
-        <div class="tool-card-header">
-          <div class="tool-icon">🤖</div>
-          <div>
-            <h3>GitHub Copilot</h3>
-            <div class="tool-score"><span class="stars">★★★★☆</span> 8.8</div>
-          </div>
-        </div>
-        <div class="tool-tags"><span class="tool-tag">AI编程</span><span class="tool-tag free">免费可用</span></div>
-        <p>最成熟的AI编程助手，深度集成VS Code/JetBrains。2026年新增Agent模式，可自主完成复杂任务。</p>
-        <div class="tool-meta">
-          <span>💰 个人免费 / Business $19/月</span>
-          <a href="/articles/copilot-review.html" class="tool-link">详细评测 →</a>
-        </div>
-      </article>
-
-      <!-- AI视频工具 -->
-      <article class="tool-card" data-category="video">
-        <span class="tool-rank">视频类 TOP 1</span>
-        <div class="tool-card-header">
-          <div class="tool-icon">🎬</div>
-          <div>
-            <h3>Runway Gen-4</h3>
-            <div class="tool-score"><span class="stars">★★★★☆</span> 8.9</div>
-          </div>
-        </div>
-        <div class="tool-tags"><span class="tool-tag">AI视频</span></div>
-        <p>视频生成质量最高，Gen-4模型物体一致性好，运动自然。支持文生视频、图生视频、视频编辑。</p>
-        <div class="tool-meta">
-          <span>💰 免费额度 / $15/月起</span>
-          <a href="/articles/runway-review.html" class="tool-link">详细评测 →</a>
-        </div>
-      </article>
-
-      <!-- AI办公工具 -->
-      <article class="tool-card" data-category="office">
-        <span class="tool-rank">办公类 TOP 1</span>
-        <div class="tool-card-header">
-          <div class="tool-icon">📊</div>
-          <div>
-            <h3>Gamma</h3>
-            <div class="tool-score"><span class="stars">★★★★★</span> 9.2</div>
-          </div>
-        </div>
-        <div class="tool-tags"><span class="tool-tag">AI办公</span><span class="tool-tag free">免费可用</span></div>
-        <p>一键生成专业PPT和文档，设计感出众。AI辅助排版、配图、图表，演示文稿制作效率提升10倍。</p>
-        <div class="tool-meta">
-          <span>💰 免费版可用 / Plus $10/月</span>
-          <a href="/articles/gamma-review.html" class="tool-link">详细评测 →</a>
-        </div>
-      </article>    </div>
+    </div>
     <div style="text-align:center;margin-top:28px;">
       <a href="/tools.html" class="btn-primary">查看全部 8 款工具 →</a>
     </div>
   </div>
 </section>
 
-
-
-<!-- 最新文章 -->
+<!-- 最新文章 TOP 3 -->
 <section class="section" id="articles">
   <div class="container">
-    <h2 class="section-title">📰 最新评测文章</h2>
+    <h2 class="section-title">最新评测文章</h2>
     <p class="section-desc">深度评测 + 使用教程 + 横向对比</p>
     <div class="article-list">
 
       <article class="article-card">
         <div class="article-date">2026-05-28</div>
-        <h3>10款AI写作工具深度横评：Claude vs ChatGPT vs DeepSeek 谁更强？</h3>
-        <p>从中文写作质量、长文能力、创意性、性价比四个维度，全面对比当前最热门的AI写作工具...</p>
+        <h3>10 款 AI 写作工具深度横评：Claude vs ChatGPT vs DeepSeek 谁更强？</h3>
+        <p>从中文写作质量、长文能力、创意性、性价比四个维度，全面对比当前最热门的 AI 写作工具...</p>
         <a href="/articles/ai-writing-tools-comparison.html" class="read-more">阅读全文 →</a>
       </article>
 
       <article class="article-card">
         <div class="article-date">2026-05-25</div>
-        <h3>Cursor完全使用指南：从入门到生产力提升5倍</h3>
-        <p>从安装配置、快捷键、Composer使用技巧到进阶工作流，手把手教你用Cursor高效编程...</p>
+        <h3>Cursor 完全使用指南：从入门到生产力提升 5 倍</h3>
+        <p>从安装配置、快捷键、Composer 使用技巧到进阶工作流，手把手教你用 Cursor 高效编程...</p>
         <a href="/articles/cursor-guide.html" class="read-more">阅读全文 →</a>
       </article>
 
       <article class="article-card">
         <div class="article-date">2026-05-22</div>
-        <h3>免费AI工具大盘点：2026年这些工具真的可以白嫖</h3>
-        <p>精选15款真正免费且好用的AI工具，涵盖写作、绘图、编程、设计等领域，附使用技巧...</p>
+        <h3>免费 AI 工具大盘点：2026 年这些工具真的可以白嫖</h3>
+        <p>精选 15 款真正免费且好用的 AI 工具，涵盖写作、绘图、编程、设计等领域，附使用技巧...</p>
         <a href="/articles/free-ai-tools-2026.html" class="read-more">阅读全文 →</a>
       </article>
 
-      <article class="article-card">
-        <div class="article-date">2026-05-20</div>
-        <h3>Midjourney V7 vs Stable Diffusion SD3：AI绘画谁更胜一筹</h3>
-        <p>从画质、风格多样性、上手难度、成本等角度，深入对比两大AI绘画平台的实际表现...</p>
-        <a href="/articles/midjourney-vs-sd.html" class="read-more">阅读全文 →</a>
-      </article>
-
-      <article class="article-card">
-        <div class="article-date">2026-05-18</div>
-        <h3>AI视频生成工具推荐：2026年最佳选择与实测对比</h3>
-        <p>Runway、Pika、Sora、国内可灵/即梦等AI视频工具横向对比，帮你选对视频创作搭档...</p>
-        <a href="/articles/ai-video-tools-2026.html" class="read-more">阅读全文 →</a>
-      </article>
-
-      <article class="article-card">
-        <div class="article-date">2026-05-15</div>
-        <h3>2026年必知的10个AI效率工具：让工作效率提升10倍</h3>
-        <p>精选AI办公效率工具，从会议记录到PPT制作再到数据分析，帮你告别重复劳动...</p>
-        <a href="/articles/ai-productivity-tools.html" class="read-more">阅读全文 →</a>
-      </article>      </div>
     </div>
     <div style="text-align:center;margin-top:28px;">
-      <a href="/articles.html" class="btn-primary">查看全部 6 篇文章 →</a>
+      <a href="/articles.html" class="btn-primary">查看全部文章 →</a>
     </div>
   </div>
 </section>
 
-
 <!-- 开源实战 -->
 <section class="section" id="opensource">
   <div class="container">
-    <h2 class="section-title">🛠️ 开源实战</h2>
-    <p class="section-desc">从零搭建开源AI技术栈，每一步都有命令，每个坑都踩过</p>
+    <h2 class="section-title">开源实战</h2>
+    <p class="section-desc">从零搭建开源 AI 技术栈，每一步都有命令，每个坑都踩过</p>
     <div class="article-list">
 
       <article class="article-card">
         <div class="article-date">2026-06-02</div>
-        <h3>Ollama + Open WebUI 部署教程：免费搭建你的私人ChatGPT</h3>
-        <p>三平台部署教程、模型推荐、GPU加速配置、常见排错。花30分钟把AI装在自己电脑上，数据100%本地，永久免费。</p>
+        <h3>Ollama + Open WebUI 部署教程：免费搭建你的私人 ChatGPT</h3>
+        <p>三平台部署教程、模型推荐、GPU 加速配置、常见排错。花 30 分钟把 AI 装在自己电脑上，数据 100% 本地，永久免费。</p>
         <div style="margin-top:8px;">
           <span class="tool-tag">Ollama</span>
           <span class="tool-tag">Open WebUI</span>
@@ -300,30 +222,30 @@
     </div>
   </div>
 </section>
-<!-- CTA -->
+
+<!-- CTA 订阅区 -->
 <section class="container">
   <div class="cta">
-    <h2>🚀 不想错过最新AI工具评测？</h2>
-    <p>每周推送精选AI工具评测、使用教程和行业动态</p>
-    <a href="/contact.html" class="btn">📬 订阅更新</a>
+    <h2>不想错过最新 AI 工具评测？</h2>
+    <p>每周推送精选 AI 工具评测、使用教程和行业动态</p>
+    <a href="/contact.html" class="btn">订阅更新</a>
   </div>
 </section>
-
-
 
 <!-- 页脚 -->
 <footer class="footer">
   <div class="footer-inner">
     <div>
       <a href="/" class="footer-brand"><img src="/images/logo.png" alt="AI工具库" height="36"><span>AI工具库</span></a>
-      <p>专注AI工具评测与推荐。我们不生产AI，我们帮你找到最适合的AI工具。所有评测基于真实使用体验，力求客观公正。</p>
+      <p>专注 AI 工具评测与推荐。我们不生产 AI，我们帮你找到最适合的 AI 工具。所有评测基于真实使用体验，力求客观公正。</p>
     </div>
     <div>
       <h4>快速导航</h4>
       <ul>
         <li><a href="/">首页</a></li>
         <li><a href="/tools.html">工具评测</a></li>
-        <li><a href="/articles.html">最新文章</a></li><li><a href="/opensource.html">开源实战</a></li>
+        <li><a href="/articles.html">最新文章</a></li>
+        <li><a href="/opensource.html">开源实战</a></li>
         <li><a href="/about.html">关于我们</a></li>
         <li><a href="/contact.html">联系我们</a></li>
       </ul>
@@ -337,11 +259,11 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 AI工具库 (aitool.aiseo.one) · 本站为独立评测平台，与所评工具无商业关联。</p>
+    <p>&copy; 2026 AI工具库 (aitool.aiseo.one) &middot; 本站为独立评测平台，与所评工具无商业关联。</p>
   </div>
 </footer>
 
-<button id="backToTop" style="display:none;position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);z-index:99;">↑</button>
+<button id="backToTop" title="回到顶部">↑</button>
 
 <script src="/js/main.js?v=10"></script>
 </body>
