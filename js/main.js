@@ -1,17 +1,17 @@
-// ===== AI工具评测站 - 暗黑科技风 JS =====
+// ===== AI工具评测站 - 粉色清新科技风 JS =====
 (function() {
   'use strict';
 
   // === 打字机效果 ===
   function initTypewriter() {
-    const el = document.querySelector('.typewriter');
+    var el = document.querySelector('.typewriter');
     if (!el) return;
-    const texts = JSON.parse(el.dataset.texts || '["发掘2026年最值得使用的AI工具"]');
-    const cursor = el.querySelector('.cursor');
-    let textIdx = 0, charIdx = 0, isDeleting = false;
+    var texts = JSON.parse(el.dataset.texts || '["发掘2026年最值得使用的AI工具"]');
+    var cursor = el.querySelector('.cursor');
+    var textIdx = 0, charIdx = 0, isDeleting = false;
     
     function type() {
-      const current = texts[textIdx];
+      var current = texts[textIdx];
       if (isDeleting) {
         el.childNodes[0] && (el.childNodes[0].textContent = current.substring(0, charIdx - 1));
         charIdx--;
@@ -21,7 +21,7 @@
         charIdx++;
       }
       
-      let speed = isDeleting ? 40 : 80;
+      var speed = isDeleting ? 40 : 80;
       if (!isDeleting && charIdx === current.length) {
         speed = 2000;
         isDeleting = true;
@@ -35,31 +35,50 @@
     type();
   }
 
-  // === 卡片入场动画（JS仅负责stagger延迟，可见性由CSS保证） ===
+  // === 卡片入场动画（IntersectionObserver + stagger） ===
   function initScrollReveal() {
-    document.querySelectorAll('.tool-card, .article-card').forEach((card, i) => {
-      card.style.animation = `cardReveal 0.5s ease both ${i * 0.06}s`;
-    });
+    var cards = document.querySelectorAll('.tool-card, .article-card');
+    if (!cards.length) return;
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var card = entry.target;
+            var idx = Array.prototype.indexOf.call(cards, card);
+            card.style.animation = 'cardReveal 0.5s ease both ' + (idx * 0.08) + 's';
+            observer.unobserve(card);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      cards.forEach(function(card) { observer.observe(card); });
+    } else {
+      // 降级：直接显示
+      cards.forEach(function(card, i) {
+        card.style.animation = 'cardReveal 0.5s ease both ' + (i * 0.08) + 's';
+      });
+    }
   }
 
   // === 分类筛选（事件委托） ===
   function initCategoryFilter() {
-    const tagsContainer = document.querySelector('.categories');
+    var tagsContainer = document.querySelector('.categories');
     if (!tagsContainer) return;
     
     tagsContainer.addEventListener('click', function(e) {
-      const tag = e.target.closest('.cat-tag');
+      var tag = e.target.closest('.cat-tag');
       if (!tag) return;
       
-      const cat = tag.dataset.category;
+      var cat = tag.dataset.category;
       if (!cat) return;
       
-      // Toggle active class on all tags
-      tagsContainer.querySelectorAll('.cat-tag').forEach(t => t.classList.remove('active'));
+      // Toggle active class
+      tagsContainer.querySelectorAll('.cat-tag').forEach(function(t) { t.classList.remove('active'); });
       tag.classList.add('active');
       
       // Filter cards
-      document.querySelectorAll('.tool-card').forEach(card => {
+      document.querySelectorAll('.tool-card').forEach(function(card) {
         if (cat === 'all' || card.dataset.category === cat) {
           card.style.display = '';
         } else {
@@ -70,90 +89,84 @@
   }
 
   // === 搜索 ===
-  // === 搜索 ===
   function initSearch() {
-    const input = document.getElementById('toolSearch');
-    const btn = document.querySelector('.hero-search button');
+    var input = document.getElementById('toolSearch');
+    var btn = document.querySelector('.hero-search button');
     if (!input) return;
 
     function doSearch() {
-      const q = input.value.toLowerCase().trim();
-      document.querySelectorAll('.tool-card').forEach(card => {
-        const text = card.textContent.toLowerCase();
-        card.style.display = !q || text.includes(q) ? '' : 'none';
+      var q = input.value.toLowerCase().trim();
+      document.querySelectorAll('.tool-card').forEach(function(card) {
+        var text = card.textContent.toLowerCase();
+        card.style.display = (!q || text.includes(q)) ? '' : 'none';
       });
     }
 
     function resetSearch() {
-      document.querySelectorAll('.tool-card').forEach(card => {
+      document.querySelectorAll('.tool-card').forEach(function(card) {
         card.style.display = '';
       });
     }
 
-    // 按钮点击搜索
     if (btn) btn.addEventListener('click', doSearch);
-    // 回车搜索
-    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
-    // 清空输入框时恢复所有卡片
-    input.addEventListener('input', () => { if (!input.value.trim()) resetSearch(); });
-  }
-
-  // === 鼠标光晕跟随 ===
-  function initMouseGlow() {
-    const styleEl = document.createElement('style');
-    document.head.appendChild(styleEl);
-    document.addEventListener('mousemove', (e) => {
-      styleEl.textContent = `body::after { opacity: 0.6; background: radial-gradient(ellipse 600px 400px at ${e.clientX}px ${e.clientY}px, rgba(0,240,255,0.04), transparent 80%); }`;
-    });
+    input.addEventListener('keydown', function(e) { if (e.key === 'Enter') doSearch(); });
+    input.addEventListener('input', function() { if (!input.value.trim()) resetSearch(); });
   }
 
   // === 统计数字滚动 ===
   function initStatCounter() {
-    const statNums = document.querySelectorAll('.stat-num');
+    var statNums = document.querySelectorAll('.stat-num');
     if (!statNums.length) return;
     
     function animateCount(el) {
-      const text = el.textContent.trim();
-      const match = text.match(/^(\d+)([+%]?.*)$/);
+      var text = el.textContent.trim();
+      var match = text.match(/^(\d+)([+%]?.*)$/);
       if (!match) return;
-      const target = parseInt(match[1]);
-      const suffix = match[2];
-      let current = 0;
-      const duration = 800;
-      const start = performance.now();
+      var target = parseInt(match[1]);
+      var suffix = match[2];
+      var start = performance.now();
+      var duration = 800;
       
       function tick(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        current = Math.round(eased * target);
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.round(eased * target);
         el.textContent = current + suffix;
         if (progress < 1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
     }
     
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); observer.unobserve(e.target); } });
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          animateCount(e.target);
+          observer.unobserve(e.target);
+        }
+      });
     }, { threshold: 0.5 });
-    statNums.forEach(n => observer.observe(n));
+    
+    statNums.forEach(function(n) { observer.observe(n); });
   }
 
   // === 分区标题下划线展开 ===
   function initSectionTitles() {
-    const titles = document.querySelectorAll('.section-title');
+    var titles = document.querySelectorAll('.section-title');
     if (!titles.length) return;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) e.target.classList.add('revealed');
+      });
     }, { threshold: 0.6, rootMargin: '0px 0px -40px 0px' });
-    titles.forEach(t => observer.observe(t));
+    titles.forEach(function(t) { observer.observe(t); });
   }
 
   // === 主题切换 ===
   function initThemeToggle() {
-    const btn = document.getElementById('themeToggle');
+    var btn = document.getElementById('themeToggle');
     if (!btn) return;
-    const html = document.documentElement;
+    var html = document.documentElement;
 
     function setTheme(light) {
       html.setAttribute('data-theme', light ? 'light' : 'dark');
@@ -161,27 +174,75 @@
       localStorage.setItem('aitool-theme', light ? 'light' : 'dark');
     }
 
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function() {
       setTheme(html.getAttribute('data-theme') !== 'light');
     });
 
-    // 页面加载时应用已保存的主题
-    const saved = localStorage.getItem('aitool-theme');
+    // 加载已保存主题
+    var saved = localStorage.getItem('aitool-theme');
     if (saved === 'light') setTheme(true);
+    else if (saved === 'dark') setTheme(false);
   }
 
-  // === 卡片整体可点击（委托到内部tool-link） ===
+  // === 卡片整体可点击 ===
   function initCardClick() {
-    document.addEventListener('click', (e) => {
-      const card = e.target.closest('.tool-card');
+    document.addEventListener('click', function(e) {
+      var card = e.target.closest('.tool-card');
       if (!card) return;
-      const link = card.querySelector('.tool-link');
+      var link = card.querySelector('.tool-link');
       if (link) window.location.href = link.getAttribute('href');
     });
   }
 
+  // === 回到顶部 ===
+  function initBackToTop() {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    window.addEventListener('scroll', function() {
+      btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // === 文章进度条 ===
+  function initReadingProgress() {
+    var bar = document.getElementById('readingProgressBar');
+    if (!bar) return;
+
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = progress + '%';
+    });
+  }
+
+  // === TOC 高亮 ===
+  function initTOCHighlight() {
+    var tocLinks = document.querySelectorAll('.toc-sidebar a');
+    var headings = document.querySelectorAll('.article-content h2, .article-content h3');
+    if (!tocLinks.length || !headings.length) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.getAttribute('id');
+          tocLinks.forEach(function(link) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+
+    headings.forEach(function(h) { observer.observe(h); });
+  }
+
   // === 启动 ===
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', function() {
     initThemeToggle();
     initTypewriter();
     initScrollReveal();
@@ -189,7 +250,9 @@
     initSectionTitles();
     initCategoryFilter();
     initSearch();
-    initMouseGlow();
     initCardClick();
+    initBackToTop();
+    initReadingProgress();
+    initTOCHighlight();
   });
 })();

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,7 +6,10 @@
 <meta name="description" content="从零搭建私有AI助手：Ollama部署本地大模型 + Open WebUI图形界面，完全免费、数据不出电脑。包含Windows/Mac/Linux三平台教程、模型推荐、GPU加速配置和常见问题排错。">
 <meta name="keywords" content="Ollama教程,Ollama部署,Open WebUI,本地大模型,私人ChatGPT,开源AI,自建AI助手,免费AI部署">
 <link rel="canonical" href="https://aitool.aiseo.one/articles/ollama-openwebui-guide.html">
-<link rel="stylesheet" href="/css/style.css?v=9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=10">
 <meta property="og:title" content="Ollama + Open WebUI：免费搭建私人ChatGPT | AI工具库">
 <meta property="og:description" content="从零搭建私有AI助手，数据100%本地，完全免费。三平台教程+模型推荐+排错指南。">
 <meta property="og:url" content="https://aitool.aiseo.one/articles/ollama-openwebui-guide.html">
@@ -16,6 +19,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ollama + Open WebUI 免费吗？","acceptedAnswer":{"@type":"Answer","text":"完全免费。Ollama是MIT协议开源项目，Open WebUI是BSD协议。本地部署后没有任何月费，唯一成本是你的电脑电费。如果你用云服务器部署，需要付VPS租金（约$5-20/月）。"}},{"@type":"Question","name":"需要什么样的电脑配置？","acceptedAnswer":{"@type":"Answer","text":"最低配置：8GB内存，CPU推理也能跑7B模型（如Qwen2.5 7B、Llama 3.2 3B）。推荐配置：16GB+内存 + 6GB+显存的NVIDIA显卡，可以流畅运行14B级别模型。如果是Mac M系列芯片，8GB统一内存跑7B模型体验已经不错。"}},{"@type":"Question","name":"本地部署的模型和ChatGPT比差距大吗？","acceptedAnswer":{"@type":"Answer","text":"有差距但正在快速缩小。7B级别模型在中文日常对话上已接近GPT-3.5水平；14B-32B模型（如Qwen2.5 32B、DeepSeek R1 32B）在多数任务上接近GPT-4o；70B+模型在特定领域可超越。关键是本地模型响应快、无隐私顾虑、可离线使用。"}}]}</script>
 </head>
 <body>
+<div id="readingProgressBar"></div>
 <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo"><img src="/images/logo.png" alt="AI工具库" height="32"><span>AI工具库</span></a><ul class="nav-links"><li><a href="/">首页</a></li><li><a href="/tools.html">工具评测</a></li><li><a href="/articles.html">最新文章</a></li><li><a href="/opensource.html">开源实战</a></li><li><a href="/about.html">关于</a></li><li><a href="/contact.html">联系</a></li></ul><button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="切换浅色/暗黑模式">🌙</button></div></nav>
 
 <div class="breadcrumb container"><a href="/">首页</a> &raquo; <a href="/opensource.html">开源实战</a> &raquo; Ollama + Open WebUI 部署教程</div>
@@ -234,6 +238,6 @@ ollama rm qwen2.5:7b
 
 <button id="backToTop" style="display:none;position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);z-index:99;">↑</button>
 
-<script src="/js/main.js?v=9"></script>
+<script src="/js/main.js?v=10"></script>
 </body>
 </html>
