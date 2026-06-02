@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://aitool.aiseo.one/articles/ollama-openwebui-guide.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css?v=10">
 <meta property="og:title" content="Ollama + Open WebUI：免费搭建私人ChatGPT | AI工具库">
 <meta property="og:description" content="从零搭建私有AI助手，数据100%本地，完全免费。三平台教程+模型推荐+排错指南。">
@@ -17,15 +17,32 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9960285713299805" crossorigin="anonymous"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Ollama + Open WebUI 部署教程：免费搭建你的私人ChatGPT","description":"从零搭建私有AI助手：Ollama本地大模型 + Open WebUI图形界面，三平台部署教程、模型选择指南、GPU加速配置、常见问题排错。","author":{"@type":"Person","name":"AI工具库编辑团队"},"datePublished":"2026-06-02","dateModified":"2026-06-02","publisher":{"@type":"Organization","name":"AI工具库"},"mainEntityOfPage":"https://aitool.aiseo.one/articles/ollama-openwebui-guide.html"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ollama + Open WebUI 免费吗？","acceptedAnswer":{"@type":"Answer","text":"完全免费。Ollama是MIT协议开源项目，Open WebUI是BSD协议。本地部署后没有任何月费，唯一成本是你的电脑电费。如果你用云服务器部署，需要付VPS租金（约$5-20/月）。"}},{"@type":"Question","name":"需要什么样的电脑配置？","acceptedAnswer":{"@type":"Answer","text":"最低配置：8GB内存，CPU推理也能跑7B模型（如Qwen2.5 7B、Llama 3.2 3B）。推荐配置：16GB+内存 + 6GB+显存的NVIDIA显卡，可以流畅运行14B级别模型。如果是Mac M系列芯片，8GB统一内存跑7B模型体验已经不错。"}},{"@type":"Question","name":"本地部署的模型和ChatGPT比差距大吗？","acceptedAnswer":{"@type":"Answer","text":"有差距但正在快速缩小。7B级别模型在中文日常对话上已接近GPT-3.5水平；14B-32B模型（如Qwen2.5 32B、DeepSeek R1 32B）在多数任务上接近GPT-4o；70B+模型在特定领域可超越。关键是本地模型响应快、无隐私顾虑、可离线使用。"}}]}</script>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ollama + Open WebUI：免费搭建私人ChatGPT | AI工具库">
+<meta name="twitter:description" content="从零搭建私有AI助手，数据100%本地，完全免费。三平台教程+模型推荐+排错指南。">
+<meta property="og:site_name" content="AI工具库">
 </head>
 <body>
 <div id="readingProgressBar"></div>
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo"><img src="/images/logo.png" alt="AI工具库" height="32"><span>AI工具库</span></a><ul class="nav-links"><li><a href="/">首页</a></li><li><a href="/tools.html">工具评测</a></li><li><a href="/articles.html">最新文章</a></li><li><a href="/opensource.html">开源实战</a></li><li><a href="/about.html">关于</a></li><li><a href="/contact.html">联系</a></li></ul><button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="切换浅色/暗黑模式">🌙</button></div></nav>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="/images/logo.png" alt="AI工具库" height="32"><span>AI工具库</span></a>
+    <ul class="nav-links">
+      <li><a href="/">首页</a></li>
+      <li><a href="/tools.html">工具评测</a></li>
+      <li><a href="/articles.html">最新文章</a></li>
+      <li><a href="/opensource.html">开源实战</a></li>
+      <li><a href="/about.html">关于</a></li>
+      <li><a href="/contact.html">联系</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="切换浅色/暗黑模式">🌙</button>
+  </div>
+</nav>
 
 <div class="breadcrumb container"><a href="/">首页</a> &raquo; <a href="/opensource.html">开源实战</a> &raquo; Ollama + Open WebUI 部署教程</div>
 <main><article class="article-detail">
 <h1>Ollama + Open WebUI 部署教程：免费搭建你的私人ChatGPT（2026最新）</h1>
-<div class="article-meta"><span>📅 2026-06-02</span><span>📂 分类：开源实战</span><span>⏱️ 阅读约 12 分钟</span><span>🏷️ 标签：Ollama · Open WebUI · 开源 · 部署教程</span></div>
+<div class="article-meta"><span>2026-06-02</span><span>分类：开源实战</span><span>阅读约 12 分钟</span><span>标签：Ollama · Open WebUI · 开源 · 部署教程</span></div>
 <div class="article-content">
 
 <div class="highlight-box"><strong>📌 一句话总结：</strong>用Ollama在本地运行开源大模型（Qwen、Llama、DeepSeek），再用Open WebUI套一个ChatGPT同款界面——<strong>30分钟，零成本，数据100%留在你的电脑上。</strong>iOS/Android也能通过内网访问。</div>
@@ -210,7 +227,7 @@ ollama rm qwen2.5:7b
   <div class="footer-inner">
     <div>
       <a href="/" class="footer-brand"><img src="/images/logo.png" alt="AI工具库" height="36"><span>AI工具库</span></a>
-      <p>专注AI工具评测与推荐。我们不生产AI，我们帮你找到最适合的AI工具。</p>
+      <p>专注 AI 工具评测与推荐。我们不生产 AI，我们帮你找到最适合的 AI 工具。所有评测基于真实使用体验，力求客观公正。</p>
     </div>
     <div>
       <h4>快速导航</h4>
@@ -232,11 +249,11 @@ ollama rm qwen2.5:7b
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 AI工具库 (aitool.aiseo.one) · 本站为独立评测平台，与所评工具无商业关联。</p>
+    <p>&copy; 2026 AI工具库 (aitool.aiseo.one) &middot; 本站为独立评测平台，与所评工具无商业关联。</p>
   </div>
 </footer>
 
-<button id="backToTop" style="display:none;position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow-md);z-index:99;">↑</button>
+<button id="backToTop" title="回到顶部">&#8593;</button>
 
 <script src="/js/main.js?v=10"></script>
 </body>
