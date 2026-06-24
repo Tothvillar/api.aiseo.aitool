@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /articles/template.html
+
+Sitemap: https://aitool.aiseo.one/sitemap.xml
