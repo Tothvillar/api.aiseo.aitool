@@ -1,0 +1,14 @@
+{
+  "buildTime": "2026-06-25T04:27:46.761Z",
+  "nodeVersion": "v22.22.3",
+  "platform": "linux",
+  "files": {
+    "html": 8,
+    "css": 1,
+    "js": 1
+  },
+  "sizes": {
+    "htmlBefore": 47352,
+    "htmlAfter": 40956
+  }
+}
